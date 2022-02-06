@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>index slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>L12_GPR_BO slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
@@ -14638,35 +14638,22 @@ div.jp-OutputPrompt {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="AERSP-597---Machine-Learning-in-Aerosapce-Engineering">AERSP 597 - Machine Learning in Aerosapce Engineering<a class="anchor-link" href="#AERSP-597---Machine-Learning-in-Aerosapce-Engineering">&#182;</a></h2><h3 id="Instructor:-Daning-Huang">Instructor: <a href="apus.psu.edu">Daning Huang</a><a class="anchor-link" href="#Instructor:-Daning-Huang">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>This website hosts the slides used for the AERSP 597 course taught at Penn State Aerospace Engineering.</p>
-<p>This course has a strong focus on regression (almost no classification).  It</p>
-<ul>
-<li>covers the machine learning techniques for the data-driven modeling and data analysis with emphasis on aerospace engineering applications, and</li>
-<li>exposes the students to the latest advances in the data-driven modeling studies that would be beneficial to their research.</li>
-</ul>
-<p>The topics are accompanied by case studies representing the application of machine learning techniques in aerospace engineering research.  Knowledge of multivariate calculus and basic linear algebra is required, and some familiarity with probability would be helpful.</p>
-
+<h2 id="AERSP-597---Machine-Learning-in-Aerosapce-Engineering">AERSP 597 - Machine Learning in Aerosapce Engineering<a class="anchor-link" href="#AERSP-597---Machine-Learning-in-Aerosapce-Engineering">&#182;</a></h2><h2 id="Lecture-12,-Gaussian-Process-Regression:-Bayesian-Optimization">Lecture 12, Gaussian Process Regression: Bayesian Optimization<a class="anchor-link" href="#Lecture-12,-Gaussian-Process-Regression:-Bayesian-Optimization">&#182;</a></h2><h3 id="Instructor:-Daning-Huang">Instructor: Daning Huang<a class="anchor-link" href="#Instructor:-Daning-Huang">&#182;</a></h3>
 </div>
 </div>
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Specifically, the course consists of following topics:</p>
+<h2 id="TODAY:-Gaussian-Process-Regression---V">TODAY: Gaussian Process Regression - V<a class="anchor-link" href="#TODAY:-Gaussian-Process-Regression---V">&#182;</a></h2><p>Bayesian Optimization</p>
 <ul>
-<li>Mathematical background: <a href="L2_Math_LA.slides.html">L2 Linear Algebra</a>, <a href="L3_Math_Prob.slides.html">L3 Probability Theory</a></li>
-<li>Linear regression: <a href="L4_LR_Basics.slides.html">L4 Basics</a>, <a href="L5_LR_Reg.slides.html">L5 Regularization</a>, <a href="L6_LR_Prob.slides.html">L6 Probability Formulation</a>, <a href="L7_LR_BiasVar.slides.html">L7 Model Selection</a>, <a href="L8_LR_Kern.slides.html">L8 Kernel Method</a></li>
-<li>Gaussian process regression: <a href="L9_GPR_Basics.slides.html">L9_Basics</a>, L10_Formulation <a href="L10_GPR_Prob.pdf">pdf</a>, L10Extra_MCMC <a href="L10E_GPR_MCMC.pdf">pdf</a>, <a href="L11_GPR_Sampling.slides.html">L11_Sampling</a>, L12_BayesianOpti <a href="L12_GPR_BO.slides.html">slides</a><a href="L12_GPR_BO.pdf">/pdf</a>, L13_Variants <a href="L13_GPR_Variants.pdf">pdf</a></li>
-<li>Neural networks and Adjoint pro: Coming soon</li>
-<li>High-Dimensional systems: Coming soon</li>
-<li>Learning for dynamical systems: Coming soon</li>
+<li>Surrogates</li>
+<li>Acquisition function</li>
+<li>Inner optimization</li>
+<li>Updating schemes</li>
+</ul>
+<h3 id="References">References<a class="anchor-link" href="#References">&#182;</a></h3><ul>
+<li>Engineering Design via Surrogate Modelling: A Practical Guide, by A. Forrester, A. Sobester, A. Keane</li>
 </ul>
 
 </div>
@@ -14675,17 +14662,62 @@ div.jp-OutputPrompt {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><ol>
-<li>[PRML] Pattern Recognition and Machine Learning, Christopher Bishop, 2006.</li>
-<li>[MLaPP] Machine Learning: A Probabilistic Perspective, Kevin P. Murphy, 2012.</li>
-<li>[GPML] Gaussian Processes for Machine Learning, C. E. Rasmussen and C. K. I. Williams, 2006.</li>
-<li>[DMSC] Data-driven Modeling and Scientific Computation, Nathan Kutz, 2013.</li>
-</ol>
-<h2 id="Credits:">Credits:<a class="anchor-link" href="#Credits:">&#182;</a></h2><ol>
-<li>UMich EECS 545: <a href="https://github.com/thejakeyboy/umich-eecs545-lectures">https://github.com/thejakeyboy/umich-eecs545-lectures</a></li>
-<li>Stanford CS 229</li>
-<li>@evislomo for generating the homework solutions</li>
-</ol>
+<h3 id="An-example">An example<a class="anchor-link" href="#An-example">&#182;</a></h3>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="pics/sbo0.png"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="pics/sbo1.png"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="pics/sbo2.png"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="pics/sbo3.png"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="pics/sbo4.png"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="pics/sbo5.png"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="pics/sbo6.png"></p>
 
 </div>
 </div>
