@@ -14832,12 +14832,42 @@ $$\mbox{Vector:}\quad H_{k+1}(w_{k+1}-w_k) \approx \nabla_w F(w_{k+1}) - \nabla_
 $$\tilde{H} = \lambda I + H,\quad \lambda&gt;0$$</li>
 </ul>
 </li>
-<li>But one might as well just use <strong>Gradient Descent</strong></li>
 </ul>
 
 </div>
 </div>
-</div></div></section></section><section><section>
+</div></div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Unfortunately,-saddle-points-prevail-in-high-dimensions">Unfortunately, saddle points prevail in high dimensions<a class="anchor-link" href="#Unfortunately,-saddle-points-prevail-in-high-dimensions">&#182;</a></h3><p>The $\epsilon-\alpha$ curve [1]</p>
+<ul>
+<li>$\alpha$: Percentage of negative eigenvalues of Hessian at critical point (i.e. gradient=0)</li>
+<li>$\epsilon$: Error at critical point</li>
+<li>There are many saddle points (the figure is for a relatively small NN)</li>
+<li>Strong positive correlation between $\alpha$ and $\epsilon$, esp. in high-dim optimization</li>
+</ul>
+<p><img src="pics/nn_saddle.png" width=400px /></p>
+<p>[1] Y. Dauphin et al. Identifying and attacking the saddle point problem in high-dimensional non-convex optimization. NeurIPS 2014.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote><p>Intuitively, in high dimensions, the chance that all the directions around a critical point lead upward (positive curvature) is exponentially small w.r.t. the number of dimensions</p>
+</blockquote>
+<p>Implications:</p>
+<ul>
+<li>If you get a "converged" model and it does not perform well, then the model is likely at a saddle point</li>
+<li>The local minima are likely to be as good as global minima</li>
+<li>Now that Hessian-based method might be problematic, we should just use <strong>Gradient Descent</strong></li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14858,7 +14888,7 @@ $$<ul>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Stochastic-mode">Stochastic mode<a class="anchor-link" href="#Stochastic-mode">&#182;</a></h3><p><strong>Main Idea:</strong>  Instead of computing batch gradient (over entire training data), just compute gradient for individual example and update.</p>
+<h3 id="Stochastic-mode,-a.k.a.,-Stochastic-Gradient-Descent-(SGD)">Stochastic mode, a.k.a., Stochastic Gradient Descent (SGD)<a class="anchor-link" href="#Stochastic-mode,-a.k.a.,-Stochastic-Gradient-Descent-(SGD)">&#182;</a></h3><p><strong>Main Idea:</strong>  Instead of computing batch gradient (over entire training data), just compute gradient for individual example and update.</p>
 <p><strong>Repeat</strong> until convergence: for $n=1,\dots,N$</p>
 $$
 w := w - \eta \nabla_\vec{w} E(\vec{w} | \vec{x}^{(n)})
@@ -14877,7 +14907,7 @@ $$<ul>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Comparison">Comparison<a class="anchor-link" href="#Comparison">&#182;</a></h3><p><img src="pics/sgd_vs_bgd.png" width=600px /></p>
+<h3 id="Comparison---Batch-mode-seems-more-reliable?">Comparison - Batch mode seems more reliable?<a class="anchor-link" href="#Comparison---Batch-mode-seems-more-reliable?">&#182;</a></h3><p><img src="pics/sgd_vs_bgd.png" width=600px /></p>
 
 </div>
 </div>
@@ -14885,7 +14915,32 @@ $$<ul>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Issues">Issues<a class="anchor-link" href="#Issues">&#182;</a></h3><p><img src="pics/learning_rate.png" width=400px /></p>
+<h3 id="Comparison---but-if-we-look-at-cost">Comparison - but if we look at cost<a class="anchor-link" href="#Comparison---but-if-we-look-at-cost">&#182;</a></h3><ul>
+<li>Think LBFGS as batch GD</li>
+<li>SGD shows fast initial progress, though slowed down later.</li>
+</ul>
+<p><img src="pics/sgd_vs_lbfgs.png" width=400px /></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let $n$ be the batch size, $\epsilon\sim 10^{-3}$ the final "loss", $T$ the allowable time, then [1]</p>
+<ul>
+<li>Batch: Work$\sim n\log(1/\epsilon)$, Error$\sim(\log(T)+1)/T$ - better to focus on a certain number of samples</li>
+<li>Stochastic: Work$\sim 1/\epsilon$, Error$\sim 1/T$ - just process as many samples as possible</li>
+</ul>
+<p>[1] L. Bottou, et al. Stochastic Gradient Methods For Large-Scale Machine Learning. Arxiv: 1606.04838; Also here as slides: <a href="http://users.iems.northwestern.edu/~nocedal/ICML">http://users.iems.northwestern.edu/~nocedal/ICML</a></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Practical-Issues">Practical Issues<a class="anchor-link" href="#Practical-Issues">&#182;</a></h3><p><img src="pics/learning_rate.png" width=400px /></p>
 <ul>
 <li>How to determine learning rate?</li>
 <li>How to improve convergence rate?</li>
@@ -14986,11 +15041,11 @@ $$</li>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="More-methods">More methods<a class="anchor-link" href="#More-methods">&#182;</a></h3><p>People have devised many, many other gradient-descent methods.  Some perform the best in some specific applications, while some are more general.</p>
-<p>See for a comprehensive discussion: arxiv.org/pdf/1912.08957.pdf</p>
-<p>And a more casual discussion: <a href="https://ruder.io/optimizing-gradient-descent/">https://ruder.io/optimizing-gradient-descent/</a></p>
+<h3 id="More-methods">More methods<a class="anchor-link" href="#More-methods">&#182;</a></h3><p>People have devised many, many other gradient-descent methods.  Some perform the best in some specific applications, but there is not "one-for-all" solution.</p>
 <blockquote><p>You will implement one of them in HW3.</p>
 </blockquote>
+<p>There are also attempts to combine the advantages of different methods, e.g. [1]</p>
+<p>[1] N. Keskar, R. Socher, Improving Generalization Performance by Switching from Adam to SGD, Arxiv 1712.07628</p>
 
 </div>
 </div>
@@ -14998,7 +15053,7 @@ $$</li>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Visual-comparison-of-the-methods---I">Visual comparison of the methods - I<a class="anchor-link" href="#Visual-comparison-of-the-methods---I">&#182;</a></h3><p>From ruder.io:</p>
+<h3 id="Visual-comparison-of-the-methods---I">Visual comparison of the methods - I<a class="anchor-link" href="#Visual-comparison-of-the-methods---I">&#182;</a></h3><p>From <a href="https://ruder.io/optimizing-gradient-descent/">https://ruder.io/optimizing-gradient-descent/</a>:</p>
 <p><img src="pics/contours_evaluation_optimizers.gif" width=400px /></p>
 
 </div>
@@ -15009,7 +15064,7 @@ $$</li>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Visual-comparison-of-the-methods---II">Visual comparison of the methods - II<a class="anchor-link" href="#Visual-comparison-of-the-methods---II">&#182;</a></h3><p>From ruder.io:</p>
 <p><img src="pics/saddle_point_evaluation_optimizers.gif" width=400px /></p>
-<p>FYI: Deep NN's are filled with saddle points</p>
+<p>Again, Deep NN's are filled with saddle points</p>
 
 </div>
 </div>
@@ -15077,6 +15132,236 @@ $$</li>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>One more awesome interactive visualization: <a href="https://github.com/lilipads/gradient_descent_viz">https://github.com/lilipads/gradient_descent_viz</a></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Now-that-we-know-there-are-many-saddle-points-and-local-minima...">Now that we know there are many saddle points and local minima...<a class="anchor-link" href="#Now-that-we-know-there-are-many-saddle-points-and-local-minima...">&#182;</a></h3><ul>
+<li>What kind of local minima is better?  The <strong>flat</strong> ones - (empirically) better generalization performance</li>
+<li>Compare Adam and vanilla SGD [1]<ul>
+<li>Adam escapes saddle point easier (see the GIF earlier)</li>
+<li>SGD favors flat minima more</li>
+</ul>
+</li>
+</ul>
+<blockquote><p>Additional conclusion from [1]: A small learning rate or large-batch makes it much harder to escape from sharp minima</p>
+</blockquote>
+<p>[1] Z. Xie. A Diffusion Theory For Deep Learning Dynamics: Stochastic Gradient Descent Exponentially Favors Flat Minima. Arxiv: 2002.03495</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Practical-aspects-in-training">Practical aspects in training<a class="anchor-link" href="#Practical-aspects-in-training">&#182;</a></h2><ul>
+<li>General procedure</li>
+<li>Techniques for improved convergence and better solutions</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Basics:-General-procedure">Basics: General procedure<a class="anchor-link" href="#Basics:-General-procedure">&#182;</a></h3><ul>
+<li>If there are not much data - try cross-validation to use all data<ul>
+<li>i.e., do splits of train-test, so that all data points are used as test once.</li>
+<li>See Linear Regression module for review.</li>
+</ul>
+</li>
+<li>Otherwise, do a split of train-valid-test.<ul>
+<li>Train: for decreasing the loss</li>
+<li>Valid: for picking the best parameter during training (behave like test in CV)</li>
+<li>Test: <em>Completely</em> unseen in the training process, used to verify the model performance</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Basics:-Diagnose-your-loss-curve">Basics: Diagnose your loss curve<a class="anchor-link" href="#Basics:-Diagnose-your-loss-curve">&#182;</a></h3><ul>
+<li>Linearly decrease: increase the learning rate</li>
+<li>Shaky curves: increase the batch size</li>
+<li>Distant train/valid curves: overfitting</li>
+<li>Overlapping train/valid curves: underfitting</li>
+</ul>
+<p><img src="pics/nn_train_curves.png" width=700px /></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Basics:-More-on-loss-curves">Basics: More on loss curves<a class="anchor-link" href="#Basics:-More-on-loss-curves">&#182;</a></h3><p>dev=valid</p>
+<p><img src="pics/dl_train_dev_test.png" width=400px /></p>
+<p>[1] A. Ng, Nuts and Bolts of Building Applications using Deep Learning, NeurIPS 2016</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Intermediate:-Caveats-and-Tuning-tricks---I">Intermediate: Caveats and Tuning tricks - I<a class="anchor-link" href="#Intermediate:-Caveats-and-Tuning-tricks---I">&#182;</a></h3><ul>
+<li><p>Always <strong>normalize</strong> and <strong>shuffle</strong> your data!</p>
+<ul>
+<li>But normalization factors should be based on <strong>training</strong> dataset only.</li>
+</ul>
+</li>
+<li><p>Pick the right learning rate: e.g., Grid search [1], or (cyclic) scheduling [2,3]</p>
+<ul>
+<li>Higher learning rate for larger batch size (and larger batch-size if you have a bigger machine)</li>
+</ul>
+</li>
+</ul>
+<p>[1] S. Gugger, How Do You Find A Good Learning Rate</p>
+<p>[2] I. Loshchilov, SGDR: Stochastic gradient descent with warm restarts, Arxiv: 1608.03983</p>
+<p>[3] L. Smith, Cyclical Learning Rates for Training Neural Networks, 2017</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Intermediate:-Caveats-and-Tuning-tricks---II">Intermediate: Caveats and Tuning tricks - II<a class="anchor-link" href="#Intermediate:-Caveats-and-Tuning-tricks---II">&#182;</a></h3><ul>
+<li><p>Pick the right optimizer: Typically start with Adam, fine-tune with SGD</p>
+</li>
+<li><p>Start with ReLU or tanh for activation; avoid sigmoid unless for "gate"-like layers</p>
+</li>
+<li><p>Try overfitting on a small dataset</p>
+<ul>
+<li>If your code/model is correct, the training should converge really fast</li>
+</ul>
+</li>
+<li><p>Record your training experiments - learn from history</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="More-techniques">More techniques<a class="anchor-link" href="#More-techniques">&#182;</a></h3><p><img src="pics/nn_training.png" width=400px /></p>
+<p>[1] R. Sun. Optimization for deep learning: theory and algorithms.  Arxiv 1912.08957  <em>A nice comprehensive summary</em></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="More-techniques---Weight-initialization">More techniques - Weight initialization<a class="anchor-link" href="#More-techniques---Weight-initialization">&#182;</a></h3><ul>
+<li>Basically to get better initial guesses of the weights [1,2]</li>
+<li>Let $n_i$ be input size, $n_o$ output size, so the weight $W$ of size $(n_i,n_o)$ and let $n=n_i$ or $n=(n_i+n_o)/2$</li>
+<li>Uniform $U[-s,s]$<ul>
+<li>Xavier (tanh/sigmoid): $s=\sqrt{3/n}$</li>
+<li>Kaiming (ReLU): $s=\sqrt{6/n}$</li>
+</ul>
+</li>
+<li>Gaussian $N(0,\sigma^2)$<ul>
+<li>Xavier (tanh/sigmoid): $\sigma=\sqrt{1/n}$</li>
+<li>Kaiming (ReLU): $\sigma=\sqrt{2/n}$</li>
+</ul>
+</li>
+</ul>
+<p>[1] X. Glorot, et al. Understanding the difficulty of training deep feedforward neural networks. AISTATS 2010</p>
+<p>[2] K. He, et al. Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification. 1502.01852</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="More-techniques---Dropout">More techniques - Dropout<a class="anchor-link" href="#More-techniques---Dropout">&#182;</a></h3><ul>
+<li>Randomly "throw away" neurons during training<ul>
+<li>so these neuron do not contribute to the prediction and their weights are not updated.</li>
+<li>This is as if multiple NNs are being learned during training</li>
+</ul>
+</li>
+<li>Avoids overfitting, since now there is a "committee" of NNs</li>
+</ul>
+<p>[1] G. Hinton, et al. Improving neural networks by preventing co-adaptation of feature detectors.  Arxiv:1207.0580</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="More-techniques---Normalization-within-Network---I">More techniques - Normalization within Network - I<a class="anchor-link" href="#More-techniques---Normalization-within-Network---I">&#182;</a></h3><ul>
+<li>If we think each NN layer is a small model that we want to fit<ul>
+<li>Then it is natural to think about normalizing the "inputs" to these layers</li>
+<li>The inputs, however, are the outputs of the preceeding layer</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>Batch Normalization [1] does the trick<ul>
+<li>Turns out it maintains the distribution of inputs/outputs of the NN layers</li>
+<li>Leads to faster convergence and perhaps better accuracy</li>
+</ul>
+</li>
+</ul>
+<p><img src="pics/nn_batchnorm.png" width=300px /></p>
+<p>[1] S. Ioffe, et al. Batch normalization: Accelerating deep network training by reducing internal covariate shift. ICML 2015.</p>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="More-techniques---Normalization-within-Network---II">More techniques - Normalization within Network - II<a class="anchor-link" href="#More-techniques---Normalization-within-Network---II">&#182;</a></h3><p><img src="pics/nn_batchnorm_ex.png" width=600px /></p>
+<ul>
+<li>There are more variants, too, such as weight/layer/instance/group normalization etc.<ul>
+<li>See weight normalization [2] for example, it reparametrizes the weights instead of the inputs.</li>
+</ul>
+</li>
+</ul>
+<p>[2] T. Salimans, et al. Weight normalization: A simple reparameterization to accelerate training of deep neural networks. NeurIPS 2016</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="More-techniques---Skip-connection">More techniques - Skip connection<a class="anchor-link" href="#More-techniques---Skip-connection">&#182;</a></h3><p><img src="pics/skip_connection.png" width=500px /></p>
+<ul>
+<li>This is an important type of NN architecture.  It improves the convergence and has deeper implications.</li>
+<li>We will come back to this in L17.</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Pursuing-zero-training-error?">Pursuing zero training error?<a class="anchor-link" href="#Pursuing-zero-training-error?">&#182;</a></h3><p><img src="pics/nonzero_loss.png" width=400px /></p>
+<p>BTW, look at that deep-double descent!</p>
+<p>[1] T. Ishida, et al. Do We Need Zero Training Loss After Achieving Zero Training Error? Arxiv: 2002.08709</p>
 
 </div>
 </div>
