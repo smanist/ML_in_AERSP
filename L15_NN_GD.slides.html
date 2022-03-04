@@ -14861,7 +14861,10 @@ $$\tilde{H} = \lambda I + H,\quad \lambda&gt;0$$</li>
 <p>Implications:</p>
 <ul>
 <li>If you get a "converged" model and it does not perform well, then the model is likely at a saddle point</li>
-<li>The local minima are likely to be as good as global minima</li>
+<li>The local minima are likely to be as good as global minima<ul>
+<li>For even larger problems, even saddle points with low index are sufficient (which is more common)</li>
+</ul>
+</li>
 <li>Now that Hessian-based method might be problematic, we should just use <strong>Gradient Descent</strong></li>
 </ul>
 
@@ -14936,24 +14939,26 @@ $$<ul>
 
 </div>
 </div>
-</div></section><section>
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Practical-Issues">Practical Issues<a class="anchor-link" href="#Practical-Issues">&#182;</a></h3><p><img src="pics/learning_rate.png" width=400px /></p>
-<ul>
-<li>How to determine learning rate?</li>
-<li>How to improve convergence rate?</li>
-<li>Getting out of local minima?</li>
-</ul>
-
-</div>
-</div>
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Fancier-SGD-methods">Fancier SGD methods<a class="anchor-link" href="#Fancier-SGD-methods">&#182;</a></h2><p><img src="pics/sgd_adam.png" width=400px /></p>
+<h2 id="Practical-SGD-methods">Practical SGD methods<a class="anchor-link" href="#Practical-SGD-methods">&#182;</a></h2>$$
+w := w - \eta \nabla_\vec{w} E(\vec{w} | \vec{x}^{(n)})
+$$<p><img src="pics/learning_rate.png" width=400px /></p>
+<ul>
+<li>How to determine learning rate?</li>
+<li>How to improve convergence rate?</li>
+<li>Getting out of saddle points?</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Fancier-variants">Fancier variants<a class="anchor-link" href="#Fancier-variants">&#182;</a></h3><p><img src="pics/sgd_adam.png" width=400px /></p>
 
 </div>
 </div>
