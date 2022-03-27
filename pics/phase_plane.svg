@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Serif DrawPlus 11, 0, 3, 23 (Feb 25, 14:12:55) (http://www.serif.com) -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="812.619" height="780.887">
+	<g id="dp_group001" transform="matrix(1,0,0,1,-297.787,-147.307)">
+		<g id="dp_group002">
+			<text id="dp_text001" transform="matrix(1,3.60822e-016,-3.46945e-016,1,794.192,887.408)" xml:space="preserve" fill="black" font-family="Arial" font-size="19" font-weight="400" x="0" y="0">2</text>
+			<text id="dp_text002" transform="matrix(1,3.60822e-016,-3.46945e-016,1,794.192,887.408)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="19" font-weight="400" x="10.504" y="0"> </text>
+			<path id="dp_path005" fill="black" fill-rule="evenodd" d="M 745.641,901.864 L 735.801,882.099 C 735.688,881.891 735.517,881.785 735.289,881.785 L 735.033,881.785 C 734.787,881.785 734.616,881.891 734.521,882.099 L 724.681,901.864 C 724.644,901.94 724.644,902.012 724.681,902.077 C 724.72,902.144 724.785,902.177 724.88,902.177 L 745.443,902.177 C 745.537,902.177 745.604,902.144 745.641,902.077 C 745.68,902.012 745.68,901.94 745.641,901.864 Z M 742.144,900.163 L 726.501,900.163 L 734.323,884.464 Z "/>
+			<text id="dp_text003" transform="matrix(1,0,0,1,776.633,902.751)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="0" y="0">p  </text>
+			<text id="dp_text004" transform="matrix(1,0,0,1,776.633,902.751)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" x="31.6267" y="0">−</text>
+			<text id="dp_text005" transform="matrix(1,0,0,1,776.633,902.751)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="48.2347" y="0"> </text>
+			<text id="dp_text006" transform="matrix(1,0,0,1,776.633,902.751)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" x="56.1227" y="0">4</text>
+			<text id="dp_text007" transform="matrix(1,0,0,1,776.633,902.751)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="71.9733" y="0">q</text>
+			<text id="dp_text008" transform="matrix(1,0,0,1,776.633,902.751)" xml:space="preserve" fill="black" font-family="Times New Roman" font-size="16" font-weight="400" x="87.824" y="0"> </text>
+			<text id="dp_text009" transform="matrix(1,0,0,1,750.948,901.252)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="0" y="0">=</text>
+			<text id="dp_text010" transform="matrix(1,0,0,1,750.948,901.252)" xml:space="preserve" fill="black" font-family="Times New Roman" font-size="16" font-weight="400" x="16.6093" y="0"> </text>
+		</g>
+		<path id="dp_path014" fill="#00b050" fill-rule="evenodd" fill-opacity="0.4" stroke="none" stroke-width="3.33333" d="M 1081.48,198.985 L 694.589,198.985 L 694.589,764.137 L 1081.48,764.137 Z "/>
+		<path id="dp_path015" fill="#1616ef" fill-rule="evenodd" fill-opacity="0.4" stroke="#1616ef" stroke-width="3.33333" d="M 365.577,200.088 C 426.531,350.548 570.767,566.897 694.585,566.807 C 694.683,435.643 693.936,329.571 694.145,201.465"/>
+		<path id="dp_path016" fill="#00b050" fill-rule="evenodd" fill-opacity="0.564706" stroke="#009442" stroke-width="3.33333" d="M 1022.71,200.088 C 961.76,350.548 817.524,566.897 693.705,566.807 C 693.608,435.643 694.355,329.571 694.145,201.465"/>
+		<g id="dp_group017">
+			<g id="dp_group018">
+				<path id="dp_path019" fill="black" fill-rule="evenodd" d="M 693.144,208.985 L 695.144,208.985 L 699.144,208.985 L 694.144,198.985 L 689.144,208.985 Z "/>
+				<path id="dp_path020" fill="black" d="M 695.145,764.141 L 695.144,208.985 L 693.144,208.985 L 693.145,764.141 Z "/>
+			</g>
+		</g>
+		<g id="dp_group021">
+			<path id="dp_path022" fill="none" fill-rule="evenodd" stroke="#a8ed13" stroke-width="2" d="M 801.473,319.795 C 757.819,329.833 753.725,367.005 756.525,385.335 C 759.892,407.388 771.885,421.576 784.913,429.028 C 803.907,439.893 823.4,439.288 838.733,431.98 C 857.093,423.231 870.744,399.831 866.531,375.888 C 863.892,360.893 853.321,350.24 842.709,345.343 C 839.088,343.672 835.371,342.219 831.636,341.641 C 814.583,339.003 799.624,342.5 790.828,353.451 C 781.547,365.005 777.972,381.384 783.139,394.192 C 789.817,410.745 800.788,415.715 815.668,415.448 C 830.056,415.191 842.587,401.456 841.099,387.107 C 839.563,372.28 824.307,365.884 814.485,372.936 C 808.145,377.488 807.471,391.609 818.249,395.849"/>
+			<path id="dp_path023" fill="#a8ed13" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 845.06,346.273 L 832.363,334.4 L 827.677,346.515 Z "/>
+			<path id="dp_path024" fill="#a8ed13" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 784.515,428.555 L 795.403,442.107 L 801.757,430.775 Z "/>
+			<path id="dp_path025" fill="white" fill-rule="evenodd" stroke="black" stroke-width="2" d="M 821.764,385.62 C 819.279,385.62 817.264,387.651 817.264,390.156 C 817.264,392.661 819.279,394.692 821.764,394.692 C 824.249,394.692 826.264,392.661 826.264,390.156 C 826.264,387.651 824.249,385.62 821.764,385.62 Z "/>
+		</g>
+		<g id="dp_group026">
+			<path id="dp_path027" fill="none" fill-rule="evenodd" stroke="#bd0ea0" stroke-width="2" d="M 1062.03,213.563 L 941.225,295.935"/>
+			<path id="dp_path028" fill="none" fill-rule="evenodd" stroke="#a8ed13" stroke-width="2" d="M 1035.63,303.787 C 1036.57,300.26 1040.1,276.433 1039.92,273.323 C 1038.78,253.925 1017.6,243.724 999.207,256.768 C 985.491,266.497 949.857,261.747 945.225,242.431 C 942.657,231.723 947.625,220.093 951.625,203.787"/>
+			<path id="dp_path029" fill="#bd0ea0" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 917.689,229.313 L 909.347,240.599 L 920.201,243.121 Z "/>
+			<path id="dp_path030" fill="none" fill-rule="evenodd" stroke="#a8ed13" stroke-width="2" d="M 1052.17,293.571 C 1054.75,277.951 1058.71,267.349 1050.89,256.369 C 1041.53,243.229 1017.6,243.724 999.207,256.768 C 985.491,266.497 948.955,271.495 935.625,256.768 C 926.657,246.86 929.225,231.449 933.225,215.143"/>
+			<path id="dp_path031" fill="none" fill-rule="evenodd" stroke="#bd0ea0" stroke-width="2" d="M 1066.32,283.724 C 1070.89,261.755 1070.73,249.247 1059.86,241.277 C 1046.65,231.599 1017.6,243.724 999.207,256.768 C 985.491,266.497 934.725,279.835 921.396,265.108 C 912.428,255.2 914.996,239.789 918.996,223.483"/>
+			<path id="dp_path032" fill="#bd0ea0" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 931.4,221.081 L 923.057,232.367 L 933.912,234.889 Z "/>
+			<path id="dp_path033" fill="#bd0ea0" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 949.16,212.805 L 940.817,224.091 L 951.672,226.613 Z "/>
+			<path id="dp_path034" fill="#bd0ea0" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 1035.91,297.079 L 1044.25,285.793 L 1033.39,283.271 Z "/>
+			<path id="dp_path035" fill="#bd0ea0" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 1052.62,288.847 L 1060.96,277.561 L 1050.1,275.039 Z "/>
+			<path id="dp_path036" fill="#bd0ea0" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 1066.41,282.008 L 1074.75,270.723 L 1063.9,268.2 Z "/>
+			<path id="dp_path037" fill="#bd0ea0" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 1054.18,218.952 L 1040.39,221.555 L 1046.63,230.785 Z "/>
+			<path id="dp_path038" fill="#bd0ea0" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 951.419,288.945 L 965.209,286.343 L 958.964,277.112 Z "/>
+			<path id="dp_path039" fill="none" fill-rule="evenodd" stroke="#bd0ea0" stroke-width="2" d="M 1035.63,303.787 C 1036.57,300.26 1040.1,276.433 1039.92,273.323 C 1038.78,253.925 1017.6,243.724 999.207,256.768 C 985.491,266.497 949.857,261.747 945.225,242.431 C 942.657,231.723 947.625,220.093 951.625,203.787"/>
+			<path id="dp_path040" fill="none" fill-rule="evenodd" stroke="#bd0ea0" stroke-width="2" d="M 1052.17,293.571 C 1054.75,277.951 1058.71,267.349 1050.89,256.369 C 1041.53,243.229 1017.6,243.724 999.207,256.768 C 985.491,266.497 948.955,271.495 935.625,256.768 C 926.657,246.86 929.225,231.449 933.225,215.143"/>
+			<path id="dp_path041" fill="white" fill-rule="evenodd" stroke="black" stroke-width="2" d="M 996.311,253.584 C 993.825,253.584 991.811,255.615 991.811,258.12 C 991.811,260.625 993.825,262.656 996.311,262.656 C 998.796,262.656 1000.81,260.625 1000.81,258.12 C 1000.81,255.615 998.796,253.584 996.311,253.584 Z "/>
+		</g>
+		<g id="dp_group042">
+			<path id="dp_path043" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 1034.62,380.524 L 958.161,505.149"/>
+			<path id="dp_path044" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 970.34,363.724 C 991.231,394.043 1004.34,437.147 989.719,451.324 S 933.809,457.549 900.419,436.756"/>
+			<path id="dp_path045" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 998.477,378.145 L 993.947,391.428 L 1005.06,390.541 Z "/>
+			<path id="dp_path046" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 980.155,380.308 L 981.219,394.301 L 991.081,389.115 Z "/>
+			<path id="dp_path047" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 918.849,445.775 L 928.372,456.083 L 932.883,445.893 Z "/>
+			<path id="dp_path048" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 918.596,476.881 L 931.908,481.327 L 930.951,470.224 Z "/>
+			<path id="dp_path049" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 1029.67,388.655 L 1018.16,396.677 L 1027.63,402.54 Z "/>
+			<path id="dp_path050" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 964.596,494.597 L 976.111,486.575 L 966.633,480.712 Z "/>
+			<path id="dp_path051" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 991.064,354.957 C 1002.97,388.836 1009.07,440.663 983.223,458.455 S 938.993,476.92 905.905,475.916"/>
+			<path id="dp_path052" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 952.651,381.241 L 1029.11,505.867"/>
+			<path id="dp_path053" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 957.601,389.372 L 969.116,397.395 L 959.639,403.257 Z "/>
+			<path id="dp_path054" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 1022.68,495.315 L 1011.16,487.292 L 1020.64,481.429 Z "/>
+			<path id="dp_path055" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 1016.64,531.956 C 995.745,501.637 982.632,458.533 997.257,444.356 S 1053.17,438.131 1086.56,458.924"/>
+			<path id="dp_path056" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 995.912,540.723 C 984.008,506.844 977.904,455.017 1003.75,437.225 S 1047.98,418.76 1081.07,419.764"/>
+			<path id="dp_path057" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 989.109,513.417 L 992.439,499.784 L 981.453,501.656 Z "/>
+			<path id="dp_path058" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 1002.75,508.1 L 1003.17,494.072 L 992.819,498.189 Z "/>
+			<path id="dp_path059" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 1067.58,449.257 L 1058.06,438.949 L 1053.55,449.139 Z "/>
+			<path id="dp_path060" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 1067.83,418.151 L 1054.52,413.705 L 1055.48,424.808 Z "/>
+			<path id="dp_path061" fill="#feffff" fill-rule="evenodd" stroke="black" stroke-width="2" d="M 991.065,443.951 C 988.799,444.969 987.792,447.647 988.819,449.932 C 989.844,452.217 992.515,453.245 994.781,452.227 C 997.048,451.209 998.055,448.532 997.028,446.245 C 996.003,443.96 993.333,442.933 991.065,443.951 Z "/>
+		</g>
+		<g id="dp_group062">
+			<text id="dp_text011" transform="matrix(1,3.53884e-016,-3.46945e-016,1,1016.97,184.634)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="28" font-weight="400" x="0" y="-0.00133333"> </text>
+			<text id="dp_text012" transform="matrix(1,3.53884e-016,-3.46945e-016,1,1016.97,184.634)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" x="7.12933" y="-0.00133333">= 0</text>
+			<text id="dp_text013" transform="matrix(1,3.53884e-016,-3.46945e-016,1,1016.97,184.634)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="28" font-weight="400" x="47.476" y="-0.00133333"> </text>
+			<path id="dp_path066" fill="black" fill-rule="evenodd" d="M 1015.66,185.112 L 1005.82,165.345 C 1005.71,165.137 1005.54,165.033 1005.31,165.033 L 1005.06,165.033 C 1004.81,165.033 1004.64,165.137 1004.54,165.345 L 994.703,185.112 C 994.665,185.188 994.665,185.26 994.703,185.325 C 994.741,185.392 994.807,185.425 994.903,185.425 L 1015.47,185.425 C 1015.56,185.425 1015.63,185.392 1015.66,185.325 C 1015.7,185.26 1015.7,185.188 1015.66,185.112 Z M 1012.17,183.411 L 996.523,183.411 L 1004.34,167.711 Z "/>
+		</g>
+		<text id="dp_text014" transform="matrix(1,3.60822e-016,-3.46945e-016,1,686.22,175.747)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="0" y="0">q</text>
+		<text id="dp_text015" transform="matrix(1,3.60822e-016,-3.46945e-016,1,686.22,175.747)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="28" font-weight="400" font-style="italic" x="15.8507" y="0"> </text>
+		<path id="dp_path069" fill="#1616ef" fill-rule="evenodd" fill-opacity="0.4" stroke="none" stroke-width="3.33333" d="M 303.761,198.985 L 694.585,198.985 L 694.585,764.139 L 303.761,764.139 Z "/>
+		<path id="dp_path070" fill="none" fill-rule="evenodd" stroke="#bd0ea0" stroke-width="2" d="M 328.171,217.455 L 448.971,299.827"/>
+		<path id="dp_path071" fill="none" fill-rule="evenodd" stroke="#bd0ea0" stroke-width="2" d="M 354.571,307.679 C 353.627,304.152 350.093,280.325 350.276,277.215 C 351.415,257.817 372.599,247.616 390.989,260.66 C 404.705,270.389 440.339,265.639 444.971,246.323 C 447.539,235.615 442.571,223.985 438.571,207.679"/>
+		<path id="dp_path072" fill="#bd0ea0" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 444.925,232.427 L 436.583,221.141 L 447.437,218.619 Z "/>
+		<path id="dp_path073" fill="none" fill-rule="evenodd" stroke="#bd0ea0" stroke-width="2" d="M 338.031,297.463 C 335.445,281.843 331.484,271.241 339.307,260.261 C 348.668,247.121 372.599,247.616 390.989,260.66 C 404.705,270.389 441.241,275.387 454.571,260.66 C 463.539,250.752 460.971,235.341 456.971,219.035"/>
+		<path id="dp_path074" fill="none" fill-rule="evenodd" stroke="#bd0ea0" stroke-width="2" d="M 323.876,287.616 C 319.307,265.647 319.463,253.139 330.337,245.169 C 343.545,235.491 372.599,247.616 390.989,260.66 C 404.705,270.389 455.471,283.727 468.8,269 C 477.768,259.092 475.2,243.681 471.2,227.375"/>
+		<path id="dp_path075" fill="#bd0ea0" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 460.636,240.659 L 452.293,229.373 L 463.148,226.851 Z "/>
+		<path id="dp_path076" fill="#bd0ea0" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 475.396,248.935 L 467.053,237.649 L 477.908,235.127 Z "/>
+		<path id="dp_path077" fill="#bd0ea0" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 350.401,284.241 L 358.744,295.527 L 347.889,298.049 Z "/>
+		<path id="dp_path078" fill="#bd0ea0" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 334.691,276.009 L 343.033,287.295 L 332.179,289.817 Z "/>
+		<path id="dp_path079" fill="#bd0ea0" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 319.931,267.733 L 328.273,279.019 L 317.419,281.541 Z "/>
+		<path id="dp_path080" fill="#bd0ea0" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 350.244,232.468 L 336.453,229.865 L 342.699,220.635 Z "/>
+		<path id="dp_path081" fill="#bd0ea0" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 424.551,283.213 L 438.341,285.816 L 432.096,295.047 Z "/>
+		<path id="dp_path082" fill="black" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 393.885,257.476 C 396.371,257.476 398.385,259.507 398.385,262.012 C 398.385,264.517 396.371,266.548 393.885,266.548 C 391.4,266.548 389.385,264.517 389.385,262.012 C 389.385,259.507 391.4,257.476 393.885,257.476 Z "/>
+		<g id="dp_group083">
+			<path id="dp_path084" fill="none" fill-rule="evenodd" stroke="#a8ed13" stroke-width="2" d="M 572.26,314.611 C 615.915,324.649 620.008,361.821 617.208,380.151 C 613.841,402.204 601.848,416.392 588.82,423.844 C 569.827,434.709 550.333,434.104 535,426.796 C 516.64,418.047 502.989,394.647 507.203,370.704 C 509.841,355.709 520.412,345.056 531.024,340.159 C 534.645,338.488 538.363,337.035 542.097,336.457 C 559.151,333.819 574.109,337.316 582.905,348.267 C 592.187,359.821 595.761,376.2 590.595,389.008 C 583.916,405.561 572.945,410.531 558.065,410.264 C 543.677,410.007 531.147,396.272 532.635,381.923 C 534.171,367.096 549.427,360.7 559.248,367.752 C 565.588,372.304 566.263,386.425 555.484,390.665"/>
+			<path id="dp_path085" fill="#a8ed13" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 549.152,334.691 L 534.999,344.787 L 531.953,332.157 Z "/>
+			<path id="dp_path086" fill="#a8ed13" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 569.389,431.149 L 583.543,421.053 L 586.588,433.683 Z "/>
+			<path id="dp_path087" fill="black" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 551.969,380.436 C 554.455,380.436 556.469,382.467 556.469,384.972 C 556.469,387.477 554.455,389.508 551.969,389.508 C 549.484,389.508 547.469,387.477 547.469,384.972 C 547.469,382.467 549.484,380.436 551.969,380.436 Z "/>
+		</g>
+		<g id="dp_group088">
+			<text id="dp_text016" transform="matrix(1,3.53884e-016,-3.40006e-016,1,517.663,702.279)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="28" font-weight="400" x="0" y="-0.00133333"> </text>
+			<g id="dp_dp017" transform="matrix(1,3.53884e-016,-3.40006e-016,1,517.663,702.279)">
+				<text id="dp_text018" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" x="7.12933" y="-0.00133333">&gt;</text>
+				<text id="dp_text019" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" x="23.4813" y="-0.00133333"> 0</text>
+			</g>
+			<text id="dp_text020" transform="matrix(1,3.53884e-016,-3.40006e-016,1,517.663,702.279)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="28" font-weight="400" x="47.476" y="-0.00133333"> </text>
+			<path id="dp_path092" fill="black" fill-rule="evenodd" d="M 516.355,702.757 L 506.515,682.991 C 506.4,682.783 506.229,682.679 506.003,682.679 L 505.747,682.679 C 505.5,682.679 505.329,682.783 505.235,682.991 L 495.393,702.757 C 495.356,702.833 495.356,702.905 495.393,702.971 C 495.432,703.037 495.497,703.071 495.593,703.071 L 516.156,703.071 C 516.251,703.071 516.317,703.037 516.355,702.971 C 516.393,702.905 516.393,702.833 516.355,702.757 Z M 512.856,701.056 L 497.213,701.056 L 505.035,685.356 Z "/>
+		</g>
+		<g id="dp_group093">
+			<path id="dp_path094" fill="none" fill-rule="evenodd" stroke="#a8ed13" stroke-width="2" d="M 682.252,275.339 C 720.804,261.128 757.299,265.256 763.764,284.557 C 770.229,303.86 744.217,331.027 705.665,345.237 C 667.112,359.447 630.619,355.319 624.153,336.017 C 617.688,316.715 643.7,289.548 682.252,275.339 Z "/>
+			<path id="dp_path095" fill="none" fill-rule="evenodd" stroke="#a8ed13" stroke-width="2" d="M 686.585,288.275 C 714.993,277.804 741.323,279.172 745.395,291.328 C 749.467,303.485 729.739,321.829 701.332,332.3 C 672.924,342.771 646.595,341.403 642.523,329.245 C 638.451,317.089 658.177,298.745 686.585,288.275 Z "/>
+			<path id="dp_path096" fill="none" fill-rule="evenodd" stroke="#a8ed13" stroke-width="2" d="M 689.815,297.913 C 708.052,291.191 724.692,291.281 726.981,298.116 C 729.271,304.949 716.343,315.939 698.104,322.661 C 679.867,329.384 663.227,329.293 660.937,322.459 C 658.649,315.624 671.577,304.636 689.815,297.913 Z "/>
+			<path id="dp_path097" fill="black" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 693.957,305.751 C 696.443,305.751 698.457,307.781 698.457,310.287 C 698.457,312.792 696.443,314.823 693.957,314.823 C 691.472,314.823 689.457,312.792 689.457,310.287 C 689.457,307.781 691.472,305.751 693.957,305.751 Z "/>
+			<path id="dp_path098" fill="#a8ed13" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 680.213,275.796 L 667.896,288.064 L 662.832,276.099 Z "/>
+			<path id="dp_path099" fill="#a8ed13" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 706.224,330.385 L 718.133,317.72 L 723.587,329.512 Z "/>
+			<path id="dp_path100" fill="#a8ed13" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 680.367,301.995 L 670.936,316.6 L 663.445,305.985 Z "/>
+		</g>
+		<g id="dp_group101">
+			<path id="dp_path102" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 350.211,381.941 L 426.671,506.567"/>
+			<path id="dp_path103" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 414.492,365.141 C 393.601,395.46 380.488,438.564 395.113,452.741 S 451.023,458.967 484.413,438.173"/>
+			<path id="dp_path104" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 384.991,396.683 L 380.46,383.4 L 391.569,384.287 Z "/>
+			<path id="dp_path105" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 396.683,396.928 L 397.747,382.935 L 407.609,388.121 Z "/>
+			<path id="dp_path106" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 450.279,454.145 L 459.801,443.837 L 464.312,454.027 Z "/>
+			<path id="dp_path107" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 449.123,476.825 L 462.435,472.38 L 461.477,483.483 Z "/>
+			<path id="dp_path108" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 364.197,404.679 L 352.683,396.656 L 362.16,390.793 Z "/>
+			<path id="dp_path109" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 411.199,481.408 L 422.713,489.431 L 413.236,495.293 Z "/>
+			<path id="dp_path110" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 393.768,356.375 C 381.864,390.253 375.76,442.08 401.609,459.872 S 445.839,478.337 478.927,477.333"/>
+			<path id="dp_path111" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 432.181,382.659 L 355.721,507.284"/>
+			<path id="dp_path112" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 418.195,405.396 L 429.709,397.373 L 420.232,391.511 Z "/>
+			<path id="dp_path113" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 371.193,482.125 L 359.679,490.148 L 369.156,496.011 Z "/>
+			<path id="dp_path114" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 368.196,533.373 C 389.087,503.055 402.2,459.951 387.575,445.773 S 331.665,439.548 298.275,460.341"/>
+			<path id="dp_path115" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 388.92,542.14 C 400.824,508.261 406.928,456.435 381.079,438.643 S 336.849,420.177 303.761,421.181"/>
+			<path id="dp_path116" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 398.605,497.904 L 401.935,511.537 L 390.949,509.665 Z "/>
+			<path id="dp_path117" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 388.421,493.557 L 388.84,507.585 L 378.485,503.468 Z "/>
+			<path id="dp_path118" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 332.956,443.721 L 323.433,454.029 L 318.923,443.84 Z "/>
+			<path id="dp_path119" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 334.112,421.041 L 320.8,425.487 L 321.757,414.384 Z "/>
+			<path id="dp_path120" fill="black" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 393.767,445.368 C 396.033,446.387 397.04,449.064 396.013,451.349 C 394.988,453.635 392.317,454.663 390.051,453.644 C 387.784,452.627 386.777,449.949 387.804,447.663 C 388.829,445.377 391.499,444.351 393.767,445.368 Z "/>
+		</g>
+		<g id="dp_group121">
+			<text id="dp_text021" transform="matrix(1,3.53884e-016,-3.40006e-016,1,831.833,252.102)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="28" font-weight="400" x="0" y="-0.00133333"> </text>
+			<g id="dp_dp022" transform="matrix(1,3.53884e-016,-3.40006e-016,1,831.833,252.102)">
+				<text id="dp_text023" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" x="7.12933" y="-0.00133333">&lt;</text>
+				<text id="dp_text024" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" x="23.4813" y="-0.00133333"> 0</text>
+			</g>
+			<text id="dp_text025" transform="matrix(1,3.53884e-016,-3.40006e-016,1,831.833,252.102)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="28" font-weight="400" x="47.476" y="-0.00133333"> </text>
+			<path id="dp_path125" fill="black" fill-rule="evenodd" d="M 830.525,252.58 L 820.685,232.813 C 820.571,232.605 820.4,232.501 820.173,232.501 L 819.917,232.501 C 819.671,232.501 819.5,232.605 819.405,232.813 L 809.564,252.58 C 809.527,252.656 809.527,252.728 809.564,252.793 C 809.603,252.86 809.668,252.893 809.764,252.893 L 830.327,252.893 C 830.421,252.893 830.488,252.86 830.525,252.793 C 830.564,252.728 830.564,252.656 830.525,252.58 Z M 827.027,250.879 L 811.384,250.879 L 819.205,235.179 Z "/>
+		</g>
+		<g id="dp_group126">
+			<text id="dp_text026" transform="matrix(1,3.53884e-016,-3.53884e-016,1,820.699,702.279)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="28" font-weight="400" x="0" y="-0.00133333"> </text>
+			<g id="dp_dp027" transform="matrix(1,3.53884e-016,-3.53884e-016,1,820.699,702.279)">
+				<text id="dp_text028" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" x="7.12933" y="-0.00133333">&gt;</text>
+				<text id="dp_text029" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" x="23.4813" y="-0.00133333"> 0</text>
+			</g>
+			<text id="dp_text030" transform="matrix(1,3.53884e-016,-3.53884e-016,1,820.699,702.279)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="28" font-weight="400" x="47.476" y="-0.00133333"> </text>
+			<path id="dp_path130" fill="black" fill-rule="evenodd" d="M 819.391,702.757 L 809.551,682.991 C 809.436,682.783 809.265,682.679 809.039,682.679 L 808.783,682.679 C 808.536,682.679 808.365,682.783 808.271,682.991 L 798.429,702.757 C 798.392,702.833 798.392,702.905 798.429,702.971 C 798.468,703.037 798.533,703.071 798.629,703.071 L 819.192,703.071 C 819.287,703.071 819.353,703.037 819.391,702.971 C 819.429,702.905 819.429,702.833 819.391,702.757 Z M 815.892,701.056 L 800.249,701.056 L 808.071,685.356 Z "/>
+		</g>
+		<g id="dp_group131">
+			<text id="dp_text031" transform="matrix(1,3.60822e-016,-3.53884e-016,1,517.663,252.102)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="28" font-weight="400" x="0" y="-0.00133333"> </text>
+			<g id="dp_dp032" transform="matrix(1,3.60822e-016,-3.53884e-016,1,517.663,252.102)">
+				<text id="dp_text033" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" x="7.12933" y="-0.00133333">&lt;</text>
+				<text id="dp_text034" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" x="23.4813" y="-0.00133333"> 0</text>
+			</g>
+			<text id="dp_text035" transform="matrix(1,3.60822e-016,-3.53884e-016,1,517.663,252.102)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="28" font-weight="400" x="47.476" y="-0.00133333"> </text>
+			<path id="dp_path135" fill="black" fill-rule="evenodd" d="M 516.355,252.58 L 506.515,232.813 C 506.4,232.605 506.229,232.501 506.003,232.501 L 505.747,232.501 C 505.5,232.501 505.329,232.605 505.235,232.813 L 495.393,252.58 C 495.356,252.656 495.356,252.728 495.393,252.793 C 495.432,252.86 495.497,252.893 495.593,252.893 L 516.156,252.893 C 516.251,252.893 516.317,252.86 516.355,252.793 C 516.393,252.728 516.393,252.656 516.355,252.58 Z M 512.856,250.879 L 497.213,250.879 L 505.035,235.179 Z "/>
+		</g>
+		<g id="dp_group136">
+			<g id="dp_group137">
+				<path id="dp_path138" fill="black" fill-rule="evenodd" d="M 1074.44,565.807 L 1074.44,567.807 L 1074.44,571.807 L 1084.44,566.807 L 1074.44,561.807 Z "/>
+				<path id="dp_path139" fill="black" d="M 303.849,567.808 L 1074.44,567.807 L 1074.44,565.807 L 303.849,565.808 Z "/>
+			</g>
+		</g>
+		<text id="dp_text036" transform="matrix(1,3.53884e-016,-3.46945e-016,1,1094.55,575.576)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="0" y="0">p</text>
+		<text id="dp_text037" transform="matrix(1,3.53884e-016,-3.46945e-016,1,1094.55,575.576)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="28" font-weight="400" font-style="italic" x="15.8507" y="0"> </text>
+		<g id="dp_group142">
+			<path id="dp_path143" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 454.219,510.907 L 586.021,574.196"/>
+			<path id="dp_path144" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 478.296,522.433 L 464.272,521.932 L 469.059,511.868 Z "/>
+			<path id="dp_path145" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 559.384,561.44 L 573.408,561.941 L 568.621,572.005 Z "/>
+			<path id="dp_path146" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 458.629,534.837 L 590.432,598.127"/>
+			<path id="dp_path147" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 482.707,546.364 L 468.683,545.863 L 473.469,535.799 Z "/>
+			<path id="dp_path148" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 563.795,585.371 L 577.819,585.872 L 573.032,595.936 Z "/>
+			<path id="dp_path149" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 462.629,561.237 L 594.432,624.527"/>
+			<path id="dp_path150" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 486.707,572.764 L 472.683,572.263 L 477.469,562.199 Z "/>
+			<path id="dp_path151" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 567.795,611.771 L 581.819,612.272 L 577.032,622.336 Z "/>
+			<path id="dp_path152" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 516.496,518.544 L 534.219,622.949"/>
+			<path id="dp_path153" fill="black" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 522.933,562.388 C 520.667,563.407 519.66,566.084 520.687,568.369 C 521.712,570.655 524.383,571.683 526.649,570.664 C 528.916,569.647 529.923,566.969 528.896,564.683 C 527.871,562.397 525.201,561.371 522.933,562.388 Z "/>
+			<path id="dp_path154" fill="black" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 526.933,588.788 C 524.667,589.807 523.66,592.484 524.687,594.769 C 525.712,597.055 528.383,598.083 530.649,597.064 C 532.916,596.047 533.923,593.369 532.896,591.083 C 531.871,588.797 529.201,587.771 526.933,588.788 Z "/>
+			<path id="dp_path155" fill="black" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 518.523,538.46 C 516.256,539.479 515.249,542.156 516.276,544.441 C 517.301,546.727 519.972,547.755 522.239,546.736 C 524.505,545.719 525.512,543.041 524.485,540.755 C 523.46,538.469 520.791,537.443 518.523,538.46 Z "/>
+		</g>
+		<g id="dp_group156">
+			<path id="dp_path157" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 938.807,510.612 L 807.004,573.901"/>
+			<path id="dp_path158" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 818.013,568.58 L 832.037,568.079 L 827.251,558.015 Z "/>
+			<path id="dp_path159" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 929.447,515.403 L 915.423,515.904 L 920.209,525.968 Z "/>
+			<path id="dp_path160" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 934.396,534.543 L 802.593,597.832"/>
+			<path id="dp_path161" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 813.603,592.511 L 827.627,592.009 L 822.84,581.945 Z "/>
+			<path id="dp_path162" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 925.036,539.333 L 911.012,539.835 L 915.799,549.899 Z "/>
+			<path id="dp_path163" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 930.396,560.943 L 798.593,624.232"/>
+			<path id="dp_path164" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 809.603,618.911 L 823.627,618.409 L 818.84,608.345 Z "/>
+			<path id="dp_path165" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 921.036,565.733 L 907.012,566.235 L 911.799,576.299 Z "/>
+			<g id="dp_group166">
+				<path id="dp_path167" fill="#feffff" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 876.529,518.249 L 858.807,622.655"/>
+				<path id="dp_path168" fill="#feffff" fill-rule="evenodd" stroke="black" stroke-width="2" d="M 870.092,562.093 C 872.359,563.112 873.365,565.789 872.339,568.075 C 871.313,570.36 868.643,571.388 866.376,570.369 C 864.109,569.352 863.103,566.675 864.129,564.388 C 865.155,562.103 867.824,561.076 870.092,562.093 Z "/>
+				<path id="dp_path169" fill="#feffff" fill-rule="evenodd" stroke="black" stroke-width="2" d="M 866.092,588.493 C 868.359,589.512 869.365,592.189 868.339,594.475 C 867.313,596.76 864.643,597.788 862.376,596.769 C 860.109,595.752 859.103,593.075 860.129,590.788 C 861.155,588.503 863.824,587.476 866.092,588.493 Z "/>
+				<path id="dp_path170" fill="#feffff" fill-rule="evenodd" stroke="black" stroke-width="2" d="M 874.503,538.165 C 876.769,539.184 877.776,541.861 876.749,544.147 C 875.724,546.432 873.053,547.46 870.787,546.441 C 868.52,545.424 867.513,542.747 868.54,540.46 C 869.565,538.175 872.235,537.148 874.503,538.165 Z "/>
+			</g>
+		</g>
+		<text id="dp_text038" transform="matrix(1,3.60822e-016,-3.46945e-016,1,536.371,841.996)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="0" y="0">= </text>
+		<text id="dp_text039" transform="matrix(1,3.60822e-016,-3.46945e-016,1,536.371,841.996)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="23.436" y="0">Ax</text>
+		<text id="dp_text040" transform="matrix(1,3.60822e-016,-3.46945e-016,1,536.371,841.996)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="56.6547" y="0"> + By</text>
+		<text id="dp_text041" transform="matrix(1,3.60822e-016,-3.46945e-016,1,536.371,841.996)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="28" font-weight="400" font-style="italic" x="122.259" y="0"> </text>
+		<text id="dp_text042" transform="matrix(1,3.60822e-016,-3.46945e-016,1,489.757,822.924)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" x="0" y="0">d</text>
+		<text id="dp_text043" transform="matrix(1,3.60822e-016,-3.46945e-016,1,489.757,822.924)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="15.852" y="0">x</text>
+		<text id="dp_text044" transform="matrix(1,3.60822e-016,-3.46945e-016,1,489.757,822.924)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="30.1107" y="0"> </text>
+		<text id="dp_text045" transform="matrix(1,3.60822e-016,-3.46945e-016,1,489.757,822.924)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" x="0" y="32.612">d</text>
+		<text id="dp_text046" transform="matrix(1,3.60822e-016,-3.46945e-016,1,489.757,822.924)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="15.852" y="32.612">t</text>
+		<text id="dp_text047" transform="matrix(1,3.60822e-016,-3.46945e-016,1,489.757,822.924)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="28" font-weight="400" font-style="italic" x="23.7387" y="32.612"> </text>
+		<path id="dp_path181" fill="none" fill-rule="evenodd" stroke="black" stroke-width="2" d="M 482.145,832.228 L 527.479,832.228"/>
+		<text id="dp_text048" transform="matrix(1,3.60822e-016,-3.46945e-016,1,536.369,907.75)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="0" y="0">= </text>
+		<text id="dp_text049" transform="matrix(1,3.60822e-016,-3.46945e-016,1,536.369,907.75)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="24.4973" y="0">Cx</text>
+		<text id="dp_text050" transform="matrix(1,3.60822e-016,-3.46945e-016,1,536.369,907.75)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="59.308" y="0"> + </text>
+		<text id="dp_text051" transform="matrix(1,3.60822e-016,-3.46945e-016,1,536.369,907.75)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="91.6933" y="0">Dy</text>
+		<text id="dp_text052" transform="matrix(1,3.60822e-016,-3.46945e-016,1,536.369,907.75)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="28" font-weight="400" font-style="italic" x="126.505" y="0"> </text>
+		<text id="dp_text053" transform="matrix(1,3.60822e-016,-3.46945e-016,1,489.756,888.678)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" x="0" y="0">d</text>
+		<text id="dp_text054" transform="matrix(1,3.60822e-016,-3.46945e-016,1,489.756,888.678)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="15.852" y="0">y</text>
+		<text id="dp_text055" transform="matrix(1,3.60822e-016,-3.46945e-016,1,489.756,888.678)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="30.1107" y="0"> </text>
+		<text id="dp_text056" transform="matrix(1,3.60822e-016,-3.46945e-016,1,489.756,888.678)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" x="0" y="32.612">d</text>
+		<text id="dp_text057" transform="matrix(1,3.60822e-016,-3.46945e-016,1,489.756,888.678)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="15.852" y="32.612">t</text>
+		<text id="dp_text058" transform="matrix(1,3.60822e-016,-3.46945e-016,1,489.756,888.678)" xml:space="preserve" fill="black" font-family="Euclid Symbol" font-size="28" font-weight="400" font-style="italic" x="23.7387" y="32.612"> </text>
+		<path id="dp_path193" fill="none" fill-rule="evenodd" stroke="black" stroke-width="2" d="M 482.144,897.981 L 527.477,897.981"/>
+		<g id="dp_group194">
+			<path id="dp_path195" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 633.872,729.995 L 758.497,653.535"/>
+			<path id="dp_path196" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 633.872,654.055 L 758.497,730.515"/>
+			<path id="dp_path197" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 642.003,725.044 L 650.025,713.529 L 655.888,723.007 Z "/>
+			<path id="dp_path198" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 631.325,660.271 C 650.599,671.22 663.556,680.019 663.721,691.113 S 651.38,710.596 632.043,725.764"/>
+			<path id="dp_path199" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 656.609,668.041 L 648.587,656.527 L 642.724,666.004 Z "/>
+			<path id="dp_path200" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 733.339,715.043 L 741.361,726.557 L 747.224,717.08 Z "/>
+			<path id="dp_path201" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 747.945,659.969 L 739.923,671.484 L 734.06,662.007 Z "/>
+			<path id="dp_path202" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 618.929,660.271 C 632.027,671.22 643.595,680.019 643.721,691.113 S 634.828,712.996 619.479,725.764"/>
+			<path id="dp_path203" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 664.249,694.044 L 667.873,680.487 L 656.849,682.12 Z "/>
+			<path id="dp_path204" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 644.349,694.175 L 648.963,680.921 L 637.849,681.737 Z "/>
+			<path id="dp_path205" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 760.247,723.555 C 740.973,712.605 728.016,703.807 727.851,692.712 S 740.192,673.229 759.529,658.061"/>
+			<path id="dp_path206" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 772.643,723.555 C 759.545,712.605 747.977,703.807 747.851,692.712 S 756.744,670.829 772.093,658.061"/>
+			<path id="dp_path207" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 727.323,689.781 L 723.699,703.339 L 734.723,701.705 Z "/>
+			<path id="dp_path208" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 748.223,687.651 L 743.609,700.904 L 754.723,700.088 Z "/>
+			<path id="dp_path209" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 642.579,651.621 C 660.661,663.359 675.192,671.248 693.513,671.348 S 725.688,663.833 750.737,652.059"/>
+			<path id="dp_path210" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 642.579,644.073 C 660.661,652.048 675.192,659.093 693.513,659.171 S 729.652,653.755 750.737,644.408"/>
+			<path id="dp_path211" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 702.079,671.348 L 688.944,676.291 L 689.483,665.16 Z "/>
+			<path id="dp_path212" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 702.101,659.019 L 689.164,664.457 L 689.279,653.313 Z "/>
+			<path id="dp_path213" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 747.223,733.865 C 729.14,722.128 714.609,714.239 696.288,714.139 S 664.113,721.653 639.064,733.428"/>
+			<path id="dp_path214" fill="none" fill-rule="evenodd" stroke="#ee0000" stroke-width="2" d="M 747.223,741.413 C 729.14,733.439 714.609,726.393 696.288,726.316 S 660.149,731.732 639.064,741.079"/>
+			<path id="dp_path215" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 687.723,714.139 L 700.857,709.196 L 700.319,720.327 Z "/>
+			<path id="dp_path216" fill="#ee0000" fill-rule="evenodd" stroke="none" stroke-width="2" d="M 687.7,726.468 L 700.637,721.029 L 700.523,732.173 Z "/>
+			<path id="dp_path217" fill="#feffff" fill-rule="evenodd" stroke="black" stroke-width="2" d="M 696.36,688.659 C 698.627,689.677 699.633,692.355 698.607,694.64 C 697.581,696.925 694.911,697.953 692.644,696.935 C 690.377,695.917 689.371,693.24 690.397,690.953 C 691.423,688.668 694.092,687.641 696.36,688.659 Z "/>
+		</g>
+		<text id="dp_text059" transform="matrix(1,0,0,1,726.501,855.603)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="0" y="0">q = AD </text>
+		<text id="dp_text060" transform="matrix(1,0,0,1,726.501,855.603)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" x="94.576" y="0">−</text>
+		<text id="dp_text061" transform="matrix(1,0,0,1,726.501,855.603)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="111.184" y="0"> BC</text>
+		<text id="dp_text062" transform="matrix(1,0,0,1,726.501,855.603)" xml:space="preserve" fill="black" font-family="Times New Roman" font-size="16" font-weight="400" x="158.584" y="0"> </text>
+		<text id="dp_text063" transform="matrix(1,0,0,1,725.681,820.26)" xml:space="preserve" fill="black" font-family="Arial" font-size="28" font-weight="400" font-style="italic" x="0" y="0">p = A + D</text>
+		<text id="dp_text064" transform="matrix(1,0,0,1,725.681,820.26)" xml:space="preserve" fill="black" font-family="Times New Roman" font-size="16" font-weight="400" x="118.012" y="0"> </text>
+	</g>
+</svg>
