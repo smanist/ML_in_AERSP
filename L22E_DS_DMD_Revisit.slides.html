@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>index slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>L22E_DS_DMD_Revisit slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
@@ -14638,20 +14638,48 @@ div.jp-OutputPrompt {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="AERSP-597---Machine-Learning-in-Aerosapce-Engineering">AERSP 597 - Machine Learning in Aerosapce Engineering<a class="anchor-link" href="#AERSP-597---Machine-Learning-in-Aerosapce-Engineering">&#182;</a></h2><h3 id="Instructor:-Daning-Huang">Instructor: <a href="apus.psu.edu">Daning Huang</a><a class="anchor-link" href="#Instructor:-Daning-Huang">&#182;</a></h3>
+<h2 id="AERSP-597---Machine-Learning-in-Aerosapce-Engineering">AERSP 597 - Machine Learning in Aerosapce Engineering<a class="anchor-link" href="#AERSP-597---Machine-Learning-in-Aerosapce-Engineering">&#182;</a></h2><h2 id="Lecture-22E,-Dynamical-System:-DMD-Revisited">Lecture 22E, Dynamical System: DMD Revisited<a class="anchor-link" href="#Lecture-22E,-Dynamical-System:-DMD-Revisited">&#182;</a></h2><h3 id="Instructor:-Daning-Huang">Instructor: Daning Huang<a class="anchor-link" href="#Instructor:-Daning-Huang">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>This website hosts the slides used for the AERSP 597 course taught at Penn State Aerospace Engineering.</p>
-<p>This course has a strong focus on regression (almost no classification).  It</p>
-<ul>
-<li>covers the machine learning techniques for the data-driven modeling and data analysis with emphasis on aerospace engineering applications, and</li>
-<li>exposes the students to the latest advances in the data-driven modeling studies that would be beneficial to their research.</li>
+$$
+\newcommand\norm[1]{{\left\lVert #1 \right\rVert}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vg}{\mathbf{g}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vw}{\mathbf{w}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vy}{\mathbf{y}}
+\newcommand{\vA}{\mathbf{A}}
+\newcommand{\vB}{\mathbf{B}}
+\newcommand{\vU}{\mathbf{U}}
+\newcommand{\vV}{\mathbf{V}}
+\newcommand{\vW}{\mathbf{W}}
+\newcommand{\vX}{\mathbf{X}}
+\newcommand{\vtf}{\boldsymbol{\phi}}
+\newcommand{\vty}{\boldsymbol{\psi}}
+\newcommand{\vtF}{\boldsymbol{\Phi}}
+\newcommand{\vtS}{\boldsymbol{\Sigma}}
+\newcommand{\vtL}{\boldsymbol{\Lambda}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cK}{\mathcal{K}}
+$$
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="TODAY:-Dynamical-System---II">TODAY: Dynamical System - II<a class="anchor-link" href="#TODAY:-Dynamical-System---II">&#182;</a></h2><ul>
+<li>More on Dynamic mode decomposition</li>
 </ul>
-<p>The topics are accompanied by case studies representing the application of machine learning techniques in aerospace engineering research.  Knowledge of multivariate calculus and basic linear algebra is required, and some familiarity with probability would be helpful.</p>
+<h3 id="References:">References:<a class="anchor-link" href="#References:">&#182;</a></h3><ul>
+<li><a href="https://arxiv.org/pdf/2010.02181.pdf">JFM2021</a> Data-driven resolvent analysis, 2021</li>
+</ul>
 
 </div>
 </div>
@@ -14659,14 +14687,129 @@ div.jp-OutputPrompt {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Specifically, the course consists of following topics:</p>
+<h2 id="Make-the-most-out-of-DMD">Make the most out of DMD<a class="anchor-link" href="#Make-the-most-out-of-DMD">&#182;</a></h2><blockquote><p>What if we apply resolvent analysis to the linear system identified by DMD?</p>
+</blockquote>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Extend-the-algorithm">Extend the algorithm<a class="anchor-link" href="#Extend-the-algorithm">&#182;</a></h3><p>The first two steps remain the same</p>
 <ul>
-<li>Mathematical background: <a href="L2_Math_LA.slides.html">L2 Linear Algebra</a>, <a href="L3_Math_Prob.slides.html">L3 Probability Theory</a></li>
-<li>Linear regression: <a href="L4_LR_Basics.slides.html">L4 Basics</a>, <a href="L5_LR_Reg.slides.html">L5 Regularization</a>, <a href="L6_LR_Prob.slides.html">L6 Probability Formulation</a>, <a href="L7_LR_BiasVar.slides.html">L7 Model Selection</a>, <a href="L8_LR_Kern.slides.html">L8 Kernel Method</a></li>
-<li>Gaussian process regression: <a href="L9_GPR_Basics.slides.html">L9 Basics</a>, <a href="L10_GPR_Prob.slides.html">L10 Formulation</a>, <a href="L10E_GPR_MCMC.slides.html">L10Extra MCMC</a>, <a href="L11_GPR_Sampling.slides.html">L11 Sampling</a>, L12 BayesianOpti <a href="L12_GPR_BO.slides.html">slides</a><a href="L12_GPR_BO.pdf">/pdf</a>, L13 Variants <a href="L13_GPR_Variants.pdf">pdf</a></li>
-<li>Neural networks: <a href="L14_NN_Basics.slides.html">L14 Basics</a>, <a href="L15_NN_GD.slides.html">L15 Training</a>, <a href="L16_NN_BP.slides.html">L16 Automatic Differentiation</a>, <a href="L17_NN_Variants.slides.html">L17 Common Architectures</a></li>
-<li>High-Dimensional systems: <a href="L18_HD_Basics.slides.html">L18 Basics</a>, <a href="L19_HD_Spatial.slides.html">L19 Spatial Decomposition</a>, <a href="L19E_HD_Clustering.slides.html">L19Extra Clustering</a>, <a href="L20_HD_Temporal.slides.html">L20 Temporal Decomposition</a></li>
-<li>Dynamical and differential systems: <a href="L21_DS_Basics.slides.html">L21 Basics</a>, <a href="L22_DS_Nonnormal.slides.html">L22 Nonnormality</a>, <a href="L22E_DS_DMD_Revisit.slides.html">L22Extra DMD Revisited</a>, L23 Koopman theory (TBA), L24 Neural ODEs (TBA), L25 Physics-informed learning (TBA)</li>
+<li><p><strong>Step 1</strong>: Rank-r truncation
+$$
+X=U_r\Sigma_r V_r^H
+$$</p>
+</li>
+<li><p><strong>Step 2</strong>: System matrix - we make the distinction that $A_d=\exp(A\Delta t)$ is for discrete-time system
+$$
+A_d = X^1 V_r\Sigma_r^{-1}U_r^H \equiv BU_r^H
+$$
+and the reduced system matrix
+$$
+\tilde{A}_d = U_r^H A_d U_r = U_r^H B
+$$</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>For next step, let's now consider the more general Jordan form, i.e., when $\tilde{A}_d$ is not necessarily diagonalizable,</p>
+<ul>
+<li><strong>Step 3.1</strong>: Reduced eigenvalue problem
+$$
+\tilde{A}_d W = WJ_d
+$$
+where $W$ contains the eigenvectors and <em>generalized</em> eigenvectors.</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li><strong>Step 3.2</strong>: There is also the adjoint form - let $W^{-1}=S^H$,
+$$
+S^H\tilde{A}_d = J_dS^H
+$$</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Using exact DMD formulation,</p>
+<ul>
+<li><strong>Step 4.1</strong>: Eigensystem recovery
+$$
+\begin{align}
+U_r^H B W &amp;= WJ_d \\
+BU_r^H (BW) &amp;= (BW)J_d \\
+A_d (BW) &amp;= (BW)J_d
+\end{align}
+$$
+Again one can define $\Phi = (BW)J_d^{-1}$ as the (primal) DMD modes, so that
+$$
+A_d\Phi = \Phi J_d
+$$</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li><strong>Step 4.2</strong>: We can also do the recovery in adjoint form
+$$
+\begin{align}
+S^H U_r^H B &amp;= J_dS^H \\
+S^H U_r^H B U_r^H &amp;= J_dS^HU_r^H \\
+(U_r S)^H A_d &amp;= J_d (U_r S)^H
+\end{align}
+$$
+Now one can define $\Psi = (U_r S)$ as the adjoint DMD modes, so that
+$$
+\Psi^H A_d = J_d\Psi^H
+$$</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>One can verify that the primal and adjoint DMD modes are orthogonal to each other
+$$
+\begin{align}
+\Psi^H\Phi = (U_rS)^H (BW) J_d^{-1} = S^H \underbrace{U_r^H B}_{\tilde{A}_d} W J_d^{-1} = J_d \underbrace{S^H W}_{I} J_d^{-1} = I
+\end{align}
+$$</p>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li><strong>Step 5</strong>: Conversion to the continuous-time system<ul>
+<li>The modes $\Psi$ and $\Phi$ remain the same</li>
+<li>The "eigenvalues" $J=\frac{1}{\Delta t}\log(J_d)$</li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -14675,21 +14818,132 @@ div.jp-OutputPrompt {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><ol>
-<li>[PRML] Pattern Recognition and Machine Learning, Christopher Bishop, 2006.</li>
-<li>[MLaPP] Machine Learning: A Probabilistic Perspective, Kevin P. Murphy, 2012.</li>
-<li>[GPML] Gaussian Processes for Machine Learning, C. E. Rasmussen and C. K. I. Williams, 2006.</li>
-<li>[DMSC] Data-driven Modeling and Scientific Computation, Nathan Kutz, 2013.</li>
-</ol>
-<h2 id="Relevant-Courses">Relevant Courses<a class="anchor-link" href="#Relevant-Courses">&#182;</a></h2><ol>
-<li>More basic ones: <a href="https://www.eecs189.org/">Berkeley CS 189</a>, <a href="https://cs229.stanford.edu/">Stanford CS 229</a></li>
-<li>CNN-specific: <a href="http://cs231n.stanford.edu/">Stanford CS 231n</a></li>
-<li>ML with a Linear Algebra flavor: <a href="https://ocw.mit.edu/courses/mathematics/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">MIT 18.065</a></li>
-</ol>
-<h2 id="Credits:">Credits:<a class="anchor-link" href="#Credits:">&#182;</a></h2><ol>
-<li><a href="https://github.com/thejakeyboy/umich-eecs545-lectures">UMich EECS 545</a></li>
-<li>@evislomo for generating the homework solutions</li>
-</ol>
+<h3 id="Connect-DMD-to-Resolvent">Connect DMD to Resolvent<a class="anchor-link" href="#Connect-DMD-to-Resolvent">&#182;</a></h3><p>Now that one obtains a linear system from DMD, it is natural to apply resolvent analysis to extract out the gain characteristics over the spectrum.  Due to the special structure in DMD operator, the resolvent can be computed efficiently.</p>
+<p>We consider the following system with arbitrary forcing
+$$
+\dot{x} = Ax+f
+$$
+with DMD modes $\Phi$ and adjoint modes $\Psi$.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Understanding that the dynamics is happening in a reduced subspace spanned by the DMD modes, represent the states and forcing as
+$$
+x=\Phi a,\quad f=\Phi b
+$$
+Then
+$$
+\Phi \dot{a} = A\Phi a + \Phi b = \Phi J a + \Phi b
+$$
+and left-multiply by $\Psi^H$
+$$
+\dot{a} = J a + b
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>As usual, for a harmonic forcing
+$$
+b = \hat{b}\exp(i\omega t)
+$$
+and by Fourier Transform
+$$
+\hat{a} = (i\omega I-J)^{-1} \hat{b}
+$$
+In the full-order space
+$$
+\hat{x}=\Phi\hat{a},\quad \hat{f}=\Phi\hat{b}
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Note that
+$$
+\norm{\Phi a} = \sqrt{a^H\Phi^H\Phi a} = \sqrt{a^H F^HF a} = \norm{F a}
+$$
+where we used Cholesky decomposition $\Phi^H\Phi=F^HF$; $F$ is upper-triangular and invertible.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We want to maximize the gain
+$$
+G = \max_{\hat{f}} \frac{\norm{\hat{x}}}{\norm{\hat{f}}}
+$$
+The ratio of norms can be simplified
+$$
+\frac{\norm{\hat{x}}}{\norm{\hat{f}}} = \frac{\norm{\Phi\hat{a}}}{\norm{\Phi\hat{b}}} = \frac{\norm{F\hat{a}}}{\norm{F\hat{b}}} = \frac{\norm{F(i\omega I-J)^{-1}\hat{b}}}{\norm{F\hat{b}}} = \frac{\norm{F(i\omega I-J)^{-1}F^{-1}(F\hat{b})}}{\norm{F\hat{b}}}
+$$
+Then
+$$
+G = \max_{F\hat{b}} \frac{\norm{F(i\omega I-J)^{-1}F^{-1}(F\hat{b})}}{\norm{F\hat{b}}}
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Should not be surprising now, the optimal solution is given by the SVD
+$$
+F(i\omega I-J)^{-1}F^{-1} = U(\omega)\Sigma(\omega)V(\omega)^H
+$$
+by taking the maximum singular value $\sigma_1(\omega)$ and the associated singular vectors $u_1(\omega)$ and $v_1(\omega)$</p>
+<p>But be careful as we optimized over $F\hat{b}$, we need to convert back to the reduced-order system $\hat{b}$, then the full-order system $\hat{f}$.  The input and output modes are, respectively
+$$
+V_f(\omega) = \Phi F^{-1} V(\omega),\quad U_f(\omega) = \Phi F^{-1} U(\omega)
+$$</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h2><p>Switching to PPT slides...</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Last-comments">Last comments<a class="anchor-link" href="#Last-comments">&#182;</a></h4><p>Nevertheless, the accurate characterization of the input and output modes using data-driven DMD really relies on the data quality</p>
+<ul>
+<li>Does it cover enough dynamics (e.g. start from different initial conditions)?</li>
+<li>If highly non-normal, it is possible that DMD may be inaccurate due to numerical issues<ul>
+<li>So it may <strong>fail</strong></li>
+</ul>
+</li>
+</ul>
+<p>For highly non-normal cases</p>
+<ul>
+<li>If one already has the nonlinear solver (code) and its linearization<ul>
+<li>Directly do resolvent analysis for modal/nonmodal analysis</li>
+<li>Use e.g. <strong>Balanced Proper Orthogonal Decomposition</strong> <a href="https://www.worldscientific.com/doi/abs/10.1142/S0218127405012429">Rowley2005</a> to construct a linear system that captures the input/output modes</li>
+</ul>
+</li>
+<li>If only data is available<ul>
+<li>Try something as simple as <strong>Eigensystem Realization Algorithm</strong> <a href="https://arc.aiaa.org/doi/abs/10.2514/3.20031">Juang1985</a> - but it does <strong>not</strong> produce physically meaningful states or input modes</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
