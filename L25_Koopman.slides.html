@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>index slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>L25_Koopman slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
@@ -14638,20 +14638,59 @@ div.jp-OutputPrompt {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="AERSP-597---Machine-Learning-in-Aerosapce-Engineering">AERSP 597 - Machine Learning in Aerosapce Engineering<a class="anchor-link" href="#AERSP-597---Machine-Learning-in-Aerosapce-Engineering">&#182;</a></h2><h3 id="Instructor:-Daning-Huang">Instructor: <a href="apus.psu.edu">Daning Huang</a><a class="anchor-link" href="#Instructor:-Daning-Huang">&#182;</a></h3>
+<h2 id="AERSP-597---Machine-Learning-in-Aerosapce-Engineering">AERSP 597 - Machine Learning in Aerosapce Engineering<a class="anchor-link" href="#AERSP-597---Machine-Learning-in-Aerosapce-Engineering">&#182;</a></h2><h2 id="Lecture-25,-Dynamical-System:-Intro-to-Koopman-Theory">Lecture 25, Dynamical System: Intro to Koopman Theory<a class="anchor-link" href="#Lecture-25,-Dynamical-System:-Intro-to-Koopman-Theory">&#182;</a></h2><h3 id="Instructor:-Daning-Huang">Instructor: Daning Huang<a class="anchor-link" href="#Instructor:-Daning-Huang">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>This website hosts the slides used for the AERSP 597 course taught at Penn State Aerospace Engineering.</p>
-<p>This course has a strong focus on regression (almost no classification).  It</p>
-<ul>
-<li>covers the machine learning techniques for the data-driven modeling and data analysis with emphasis on aerospace engineering applications, and</li>
-<li>exposes the students to the latest advances in the data-driven modeling studies that would be beneficial to their research.</li>
+$$
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vg}{\mathbf{g}}
+\newcommand{\vu}{\mathbf{u}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vw}{\mathbf{w}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vy}{\mathbf{y}}
+\newcommand{\vA}{\mathbf{A}}
+\newcommand{\vB}{\mathbf{B}}
+\newcommand{\vG}{\mathbf{G}}
+\newcommand{\vU}{\mathbf{U}}
+\newcommand{\vV}{\mathbf{V}}
+\newcommand{\vW}{\mathbf{W}}
+\newcommand{\vX}{\mathbf{X}}
+\newcommand{\vtt}{\boldsymbol{\theta}}
+\newcommand{\vtf}{\boldsymbol{\phi}}
+\newcommand{\vty}{\boldsymbol{\psi}}
+\newcommand{\vtx}{\boldsymbol{\xi}}
+\newcommand{\vtF}{\boldsymbol{\Phi}}
+\newcommand{\vtG}{\boldsymbol{\Gamma}}
+\newcommand{\vtS}{\boldsymbol{\Sigma}}
+\newcommand{\vtL}{\boldsymbol{\Lambda}}
+\newcommand{\vtX}{\boldsymbol{\Xi}}
+\newcommand{\vtY}{\boldsymbol{\Psi}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cK}{\mathcal{K}}
+$$
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="TODAY:-Dynamical-System---V">TODAY: Dynamical System - V<a class="anchor-link" href="#TODAY:-Dynamical-System---V">&#182;</a></h2><ul>
+<li>Koopman operator</li>
+<li>Extended DMD</li>
+<li>Control application</li>
 </ul>
-<p>The topics are accompanied by case studies representing the application of machine learning techniques in aerospace engineering research.  Knowledge of multivariate calculus and basic linear algebra is required, and some familiarity with probability would be helpful.</p>
+<h3 id="References:">References:<a class="anchor-link" href="#References:">&#182;</a></h3><ul>
+<li>[DMSC] Part 3</li>
+<li>[Brunton2022] Modern Koopman Theory for Dynamical Systems, 2022</li>
+</ul>
 
 </div>
 </div>
@@ -14659,14 +14698,365 @@ div.jp-OutputPrompt {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Specifically, the course consists of following topics:</p>
+<p>In L23, we have presented three underpinning principles for data-driven modeling of dynamical systems.  The last one is that</p>
+<blockquote><p><strong>Global linearization</strong>: A <strong>finite</strong>-dimensional nonlinear system can be represented by an <strong>infinite</strong>-dimensional linear system</p>
+</blockquote>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We have shown a special example where the linear system is actually finite-dimensional,
+$$
+\left\{\begin{array}
+\ \dot x_1 = \mu x_1 \\
+\dot x_2 = \lambda (x_2-x_1^2)
+\end{array}\right.
+\Rightarrow
+\left\{\begin{array}
+\ \dot y_1 = \mu y_1 \\
+\dot y_2 = \lambda (y_2-y_3) \\
+\dot y_3 = 2\mu y_3
+\end{array}\right.
+$$
+where
+$$
+y_1=x_1,\quad y_2=x_2,\quad y_3=x_1^2
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Here is one more example of PDE - 1D viscous Burgers' equation (model problem for shock waves)
+$$
+\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x} = \nu \frac{\partial^2 u}{\partial x^2},\quad u(x,0)=f(x)
+$$</p>
+<p><img src="pics/burgers.gif" align="middle" width=500px></p>
+<p>From Wikipedia, <a href="https://en.wikipedia.org/wiki/Burgers%27_equation#Viscous_Burgers&#39;_equation">Cole-Hopf Transformation</a></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Choosing
+$$
+u = -2\nu\frac{1}{\phi}\frac{\partial \phi}{\partial x}
+$$
+one gets a linear PDE that can be solved easily
+$$
+\frac{\partial \phi}{\partial t} = \nu\frac{\partial^2 \phi}{\partial x^2}
+$$
+(given the correct boundary conditions)</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="However...">However...<a class="anchor-link" href="#However...">&#182;</a></h3><p>In general, the "global linearization" in finite dimensions does not always work.</p>
+<p>For example, if we modify the first example as
+$$
+\begin{align}
+\dot x_1 &amp;= \mu x_1 \\
+\dot x_2 &amp;= \lambda \color{red}{(x_2^2-x_1)}
+\end{align}
+$$
+Then the previous strategy will result in a cascading problem, i.e. infinite $y_i$'s will be needed to make the transformed system linear,
+$$
+\begin{align}
+\dot y_1 &amp;= \mu y_1 \\
+\dot y_2 &amp;= \lambda (y_3-y_1) \\
+\dot y_3 &amp;= 2 \lambda (y_4-y_5) \\
+\dot y_4 &amp;= \cdots \\
+\vdots &amp;= \cdots
+\end{align}
+$$
+where
+$$
+y_1=x_1,\quad y_2=x_2,\quad y_3=x_2^2,\quad y_4=x_2^3,\quad y_5=x_1x_2,\quad \cdots
+$$</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Koopman-Operator-(Discrete-time)">Koopman Operator (Discrete time)<a class="anchor-link" href="#Koopman-Operator-(Discrete-time)">&#182;</a></h2><p>Now let's formalize the "global linearization" procedure.  Let's first start with the discrete time case,
+$$
+\begin{align}
+\mbox{System dynamics: }&amp;\ \vx_{k+1}=\vf(\vx_k) \\
+\mbox{Observation: }&amp;\ \vg_k=\vg(\vx_k) \\
+\mbox{Initial condition: }&amp;\ \vg_0=\vg(\vx_0)
+\end{align}
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Next, let's first just consider one scalar observation $g(\vx)$ -</p>
+<p>A Koopman operator $\cK_t$ is infinite-dimensional, linear, and,
+$$
+\cK_t g = g\circ\vf
+$$</p>
+<blockquote><p>In the notation above, $\cK_t$ is a "functional" that takes in a function ($g$) and returns another function.  $\circ$ means function composition.</p>
+</blockquote>
+<p>Essentially, $\cK_t$ does the following, observable <strong>linearizing</strong>:
+$$
+\cK_t g(\vx_k) = g(\vf(\vx_k)) = g(\vx_{k+1})
+$$</p>
+<blockquote><p>The first step is by definition of $\cK_t$ and the second step is due to system dynamics</p>
+</blockquote>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="pics/koopman.png" align="middle" width=600px></p>
+<p>Figure Credit: Gueho, D., et al., DOI: 10.2514/6.2022-0655</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>$\cK_t$ is linear, so
+$$
+\cK_t(c_1 g_1+c_2 g_2) = c_1 \cK_t g_1+c_2 \cK_t g_2
+$$
+for any scalars $c_1,c_2$ and any functions $g_1,g_2$.</p>
+<p>And for linear transformations (even infinite dimensional), one can always define an eigenvalue problem
+$$
+\cK_t\phi_i = \tilde{\lambda}_i\phi_i,\quad i=0,1,\cdots
+$$
+where $\tilde{\lambda}_i$ are Koopman eigenvalues, and $\phi_i$ are Koopman <strong>eigenfunctions</strong>.</p>
+<blockquote><p>There are infinite number of eigenfunctions, since $\cK_t$ is infinite-dim</p>
+</blockquote>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>From a perspective of discrete-time system, one should expect
+$$
+\tilde{\lambda}_i\phi_i(\vx_k) = \cK_t\phi_i(\vx_k) = \phi(\vf{\vx_k}) = \phi(\vx_{k+1})
+$$</p>
+<p>But the above "trivial" relation leads to an interesting <strong>lattice</strong> property - consider the product of two eigenfunctions $\phi(\vx)=\phi_i(\vx)\phi_j(\vx)$
+$$
+\begin{align}
+\cK_t(\phi(\vx)) &amp;= \cK_t(\phi_i(\vx)\phi_j(\vx)) \\
+&amp;= \phi_i(\vf(\vx))\phi_j(\vf(\vx)) \\
+&amp;= \tilde{\lambda}_i\tilde{\lambda}_j\phi_i(\vx)\phi_j(\vx)
+\end{align}
+$$</p>
+<blockquote><p>The product of Koopman eigenfunctions is also a Koopman eigenfunction!  Same for eigenvalues</p>
+</blockquote>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Koopman-Mode-Decomposition">Koopman Mode Decomposition<a class="anchor-link" href="#Koopman-Mode-Decomposition">&#182;</a></h2><p>Just like eigenvectors in finite-dim space, eigenfunctions in infinite-dim space form a basis for representing other functions.</p>
+<p>For a scalar observation function $g_i(\vx)$
+$$
+g_i(\vx) = \sum_{j=0}^\infty \xi_{ij}\phi_j(\vx) =
+\begin{bmatrix} \xi_{11} &amp; \xi_{12} &amp; \xi_{13} &amp; \cdots \end{bmatrix}
+\begin{bmatrix} \phi_1(\vx) \\ \phi_2(\vx) \\ \phi_3(\vx) \\ \vdots \end{bmatrix}
+$$
+where $\xi_{ij}$ are scalar coefficients.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>When there are multiple observables, each observable can be expanded likewise,
+$$
+\begin{bmatrix} g_1(\vx) \\ g_2(\vx) \\ \vdots \\ g_m(\vx) \end{bmatrix} =
+\begin{bmatrix}
+\xi_{11} &amp; \xi_{12} &amp; \xi_{13} &amp; \cdots \\
+\xi_{21} &amp; \xi_{22} &amp; \xi_{23} &amp; \cdots \\
+\vdots &amp; \vdots &amp; \vdots &amp; \cdots \\
+\xi_{m1} &amp; \xi_{m2} &amp; \xi_{m3} &amp; \cdots
+\end{bmatrix}
+\begin{bmatrix} \phi_1(\vx) \\ \phi_2(\vx) \\ \phi_3(\vx) \\ \vdots \end{bmatrix}
+$$
+Or in short,
+$$
+\vg(\vx) = \sum_{i=0}^\infty \phi_i(\vx)\vtx_i
+$$
+where $\vtx_i$ are columns of the coefficient matrix and called the <strong>Koopman modes</strong>.</p>
+<blockquote><p>This is the <strong>Koopman Mode Decomposition</strong></p>
+</blockquote>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Then, the time response is represented as
+$$
+\vg(\vx_{k+1}) = \cK_t\vg(\vx_k) = \sum_{i=0}^\infty \cK_t\phi_i(\vx_k)\vtx_i = \sum_{i=0}^\infty \tilde{\lambda}_i\phi_i(\vx_k)\vtx_i
+$$</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>One can further go backwards in time
+$$
+\begin{align}
+\vg(\vx_{k+1}) &amp;= \cK_t^2\vg(\vx_{k-1}) = \sum_{i=0}^\infty \cK_t^2\phi_i(\vx_{k-1})\vtx_i = \sum_{i=0}^\infty \tilde{\lambda}_i^2\phi_i(\vx_{k-1})\vtx_i \\
+&amp;= \vdots \\
+&amp;= \sum_{i=0}^\infty \tilde{\lambda}_i^{k+1}\phi_i(\vx_0)\vtx_i
+\end{align}
+$$
+where the initial condition is expanded as
+$$
+\vg(\vx_0) = \sum_{i=0}^\infty \phi_i(\vx_0)\vtx_i
+$$</p>
+<blockquote><p>Looking familiar?</p>
+</blockquote>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Recall">Recall<a class="anchor-link" href="#Recall">&#182;</a></h4><p>If we collect the observables as a time sequence, and apply DMD to identify a discrete linear system, $$
+\vg_{k+1} = \vA \vg_k
+$$
+where $\vA\in\bR^{m\times m}$ has eigenvalues $\lambda_i$ and eigenvectors $\vtf_i$ (i.e. the DMD modes).</p>
+<p>Then the solution can be written as,
+$$
+\vg_{k+1}=\sum_{i=1}^m b_i \lambda_i^{k+1} \vtf_i
+$$
+where the initial condition is expanded as
+$$
+\vg_0 = \sum_{i=1}^m b_i \vtf_i
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>It is clear there is a one-to-one correspondence</p>
 <ul>
-<li>Mathematical background: <a href="L2_Math_LA.slides.html">L2 Linear Algebra</a>, <a href="L3_Math_Prob.slides.html">L3 Probability Theory</a></li>
-<li>Linear regression: <a href="L4_LR_Basics.slides.html">L4 Basics</a>, <a href="L5_LR_Reg.slides.html">L5 Regularization</a>, <a href="L6_LR_Prob.slides.html">L6 Probability Formulation</a>, <a href="L7_LR_BiasVar.slides.html">L7 Model Selection</a>, <a href="L8_LR_Kern.slides.html">L8 Kernel Method</a></li>
-<li>Gaussian process regression: <a href="L9_GPR_Basics.slides.html">L9 Basics</a>, <a href="L10_GPR_Prob.slides.html">L10 Formulation</a>, <a href="L10E_GPR_MCMC.slides.html">L10Extra MCMC</a>, <a href="L11_GPR_Sampling.slides.html">L11 Sampling</a>, L12 Bayesian Optimization <a href="L12_GPR_BO.slides.html">slides</a><a href="L12_GPR_BO.pdf">/pdf</a>, L13 Variants <a href="L13_GPR_Variants.pdf">pdf</a></li>
-<li>Neural networks: <a href="L14_NN_Basics.slides.html">L14 Basics</a>, <a href="L15_NN_GD.slides.html">L15 Training</a>, <a href="L16_NN_BP.slides.html">L16 Automatic Differentiation</a>, <a href="L17_NN_Variants.slides.html">L17 Common Architectures</a>, <a href="L17E_NN_Embed.slides.html">L17Extra Model Embedding</a></li>
-<li>High-Dimensional systems: <a href="L18_HD_Basics.slides.html">L18 Basics</a>, <a href="L19_HD_Spatial.slides.html">L19 Spatial Decomposition</a>, <a href="L19E_HD_Clustering.slides.html">L19Extra Clustering</a>, <a href="L20_HD_Temporal.slides.html">L20 Temporal Decomposition</a></li>
-<li>Dynamical and differential systems: <a href="L21_DS_Basics.slides.html">L21 Basics</a>, <a href="L22_DS_Nonnormal.slides.html">L22 Nonnormality</a>, <a href="L22E_DS_DMD_Revisit.slides.html">L22Extra DMD Revisited</a>, <a href="L23_DS_NL.slides.html">L23 Tackling Nonlinearity</a>, <a href="L24_DS_Regr.slides.html">L24 Sparse Regression</a>, <a href="L25_Koopman.slides.html">L25 Koopman</a>, L26 Neural ODEs (TBA)</li>
+<li>DMD modes $\vtf_i$ v.s Koopman modes $\vtx_i$</li>
+<li>DMD eigenvalues $\lambda_i$ v.s. Koopman eigenvalues $\tilde{\lambda}_i$</li>
+<li>DMD modal coordinates $b_i$ v.s. Koopman eigenfunctions $\phi_i(\vx_0)$ (or more generally for any $\vx_k$)</li>
+</ul>
+<p>Therefore DMD is an approximation of the Koopman operator via truncation.</p>
+<blockquote><p>This explains why DMD works for many nonlinear problems (having a low-dim linear structure, such as a limit cycle).</p>
+</blockquote>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Extended-DMD">Extended DMD<a class="anchor-link" href="#Extended-DMD">&#182;</a></h2><p>The connection between DMD and Koopman also provides a means for numerical implementation of Koopman mode decomposition.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>First, construct the data matrices as
+$$
+\vG=[\vg_0,\vg_1,\cdots,\vg_N],\quad \vG^1=[\vg_1,\vg_2,\cdots,\vg_{N+1}]
+$$</p>
+<p>From standard DMD, we can find the system matrix, together with its eigendecomposition,
+$$
+\vA = \vG^1\vG^+ \approx \vtF\vtL\vtY^H
+$$
+where $+$ is pseudo-inverse.</p>
+<blockquote><p>Based on previous discussion, $\vtL$ are simultaneously the DMD and Koopman eigenvalues</p>
+</blockquote>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Next, let's recover the Koopman eigenfunctions.</p>
+<p>An eigenfunction and its eigenvalue should satisfy
+$$
+\begin{bmatrix} \lambda\phi(\vx_0) \\ \lambda\phi(\vx_1) \\ \vdots \\ \lambda\phi(\vx_N) \end{bmatrix}
+=\begin{bmatrix} \phi(\vx_1) \\ \phi(\vx_2) \\ \vdots \\ \phi(\vx_{N+1}) \end{bmatrix}
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Think the observables as basis functions that approximate an eigenfunction,
+$$
+\phi(\vx) \approx \sum_{i=1}^m g_i(\vx)u_i = \vg(\vx)^T\vu
+$$
+Then
+$$
+\begin{bmatrix} \phi(\vx_1) \\ \phi(\vx_2) \\ \vdots \\ \phi(\vx_{N+1}) \end{bmatrix} =
+\begin{bmatrix} \vg(\vx_1)^T \\ \vg(\vx_2)^T \\ \vdots \\ \vg(\vx_{N+1})^T \end{bmatrix}\vu = (\vG^1)^T\vu
+$$
+and doing the same for the left-hand side
+$$
+\lambda\vG^T\vu = (\vG^1)^T\vu
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Thinking again in least squares, we get an eigenvalue problem
+$$
+\lambda\vu = (\vG^T)^+(\vG^1)^T\vu = \vA^T\vu
+$$
+So $\vu$ are the left eigenvectors of $\vA$, i.e. $\vtY$.  In other words, EDMD approximates the Koopman eigenfunctions as $\vg(\vx)^T\vtY$.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Side-note">Side note<a class="anchor-link" href="#Side-note">&#182;</a></h4><p>Why can we truncate "safely" an infinite-dimensional system?  There are several arguments</p>
+<ul>
+<li>From functional analysis, if one approximates a function by, say eigenfunctions $\{\phi_i\}_{i=1}^\infty$, the coefficients always decay as $i\rightarrow\infty$.</li>
+<li>From dynamical systems, the trajectory is more likely residing on a bounded low-dimensional structure (limit cycle, strange attractor, etc.), so a handful eigenfunctions might be sufficient to characterize the structure.</li>
+<li>The lattice property of $\cK_t$ indicates that, in at least some cases, the infinite eigenpairs might be simply generated by a finite set of eigenpairs.</li>
 </ul>
 
 </div>
@@ -14675,21 +15065,297 @@ div.jp-OutputPrompt {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><ol>
-<li>[PRML] Pattern Recognition and Machine Learning, Christopher Bishop, 2006.</li>
-<li>[MLaPP] Machine Learning: A Probabilistic Perspective, Kevin P. Murphy, 2012.</li>
-<li>[GPML] Gaussian Processes for Machine Learning, C. E. Rasmussen and C. K. I. Williams, 2006.</li>
-<li>[DMSC] Data-driven Modeling and Scientific Computation, Nathan Kutz, 2013.</li>
-</ol>
-<h2 id="Relevant-Courses">Relevant Courses<a class="anchor-link" href="#Relevant-Courses">&#182;</a></h2><ol>
-<li>More basic ones: <a href="https://www.eecs189.org/">Berkeley CS 189</a>, <a href="https://cs229.stanford.edu/">Stanford CS 229</a></li>
-<li>CNN-specific: <a href="http://cs231n.stanford.edu/">Stanford CS 231n</a></li>
-<li>ML with a Linear Algebra flavor: <a href="https://ocw.mit.edu/courses/mathematics/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">MIT 18.065</a></li>
-</ol>
-<h2 id="Credits:">Credits:<a class="anchor-link" href="#Credits:">&#182;</a></h2><ol>
-<li><a href="https://github.com/thejakeyboy/umich-eecs545-lectures">UMich EECS 545</a></li>
-<li>@evislomo for generating the homework solutions</li>
-</ol>
+<h2 id="Koopman-Operator-(Continuous-time)">Koopman Operator (Continuous time)<a class="anchor-link" href="#Koopman-Operator-(Continuous-time)">&#182;</a></h2><p>Now consider a dynamical system that is sufficiently smooth,
+$$
+\begin{align}
+\mbox{System dynamics: }&amp;\ \dot{\vx}=\vf(\vx) \\
+\mbox{Observation: }&amp;\ \vg=\vg(\vx) \\
+\mbox{Initial condition: }&amp;\ \vx(0)=\vx_0
+\end{align}
+$$</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>One can seek the <strong>Koopman generator</strong>
+$$
+\dot{g}=\cK g
+$$
+where note that we drop the subscript $t$.</p>
+<p>$\cK$ is essentially the infinitesimal limit of the Koopman operator, so that
+$$
+\cK g = \lim_{t\rightarrow 0} \frac{\cK_t g-g}{t} = \lim_{t\rightarrow 0} \frac{g\circ\vf-g}{t}
+$$</p>
+<blockquote><p>In some sense, $\cK$ and $\cK_t$ are analogous to $\vA$ and $\exp(\vA t)$ for finite-dim linear systems.</p>
+</blockquote>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Again $\cK$ is linear and we can define the eigensystem as
+$$
+\cK\phi = \mu\phi
+$$
+and by definition of $\cK$, $\mu\phi=\dot\phi$.</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Similar to the discrete case, the eigensystem also has a lattice property, for $\phi=\phi_i\phi_j$
+$$
+\cK\phi = \dot\phi = \dot{\phi}_i\phi_j + \phi_i\dot{\phi}_j = \mu_i\phi_i\phi_j + \mu_j\phi_i\phi_j = (\mu_i + \mu_j)\phi_i\phi_j
+$$</p>
+<blockquote><p>In fact, $\lambda=\exp(\mu\Delta t)$, which explains the difference in the lattices of $\cK_t$ (multiplicative) and $\cK$ (additive)</p>
+</blockquote>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Taking a further look at $\dot{\phi}$, by chain rule,
+$$
+\dot\phi(\vx) = \nabla\phi(\vx)\cdot\dot{\vx} = \nabla\phi(\vx)\cdot\vf(\vx)
+$$
+where $\nabla$ is gradient w.r.t. $\vx$.</p>
+<p>This leads to an alternative eigenvalue problem in the form of PDE
+$$
+\mu\phi(\vx) = \nabla\phi(\vx)\cdot\vf(\vx)
+$$</p>
+<blockquote><p>This provides another approach to computing $\phi$ if $\vf$ is known</p>
+</blockquote>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="EDMD,-Cont'd">EDMD, Cont'd<a class="anchor-link" href="#EDMD,-Cont'd">&#182;</a></h2><p>If $\vf$ is unknown, which is most of the case, one could develop a continuous version of EDMD starting from the eigenvalue problem
+$$
+\mu\phi(\vx) = \nabla\phi(\vx)\cdot\dot{\vx}
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>If one introduce the approximation
+$$
+\phi(\vx) \approx \sum_{i=1}^m g_i(\vx)u_i = \vg(\vx)^T\vu
+$$
+The eigenvalue problem becomes
+$$
+\begin{align}
+\mu\left(\sum_{i=1}^m g_i(\vx)u_i\right) &amp;= \nabla\left( \sum_{i=1}^m g_i(\vx)u_i \right)\cdot\dot{\vx} \\
+\mu\vg(\vx)^T\vu &amp;= \sum_{i=1}^m \left( \nabla g_i(\vx)\cdot \dot{\vx}\right) u_i
+\end{align}
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>From a series of data,
+$$
+\mu\begin{bmatrix}\vg(\vx_1)^T \\ \vg(\vx_2)^T \\ \cdots \\ \vg(\vx_N)^T\end{bmatrix}\vu =
+\begin{bmatrix}
+\nabla g_1(\vx)\cdot \dot{\vx}_1 &amp; \nabla g_2(\vx)\cdot \dot{\vx}_1 &amp; \cdots &amp; \nabla g_m(\vx)\cdot \dot{\vx}_1 \\
+\nabla g_1(\vx)\cdot \dot{\vx}_2 &amp; \nabla g_2(\vx)\cdot \dot{\vx}_2 &amp; \cdots &amp; \nabla g_m(\vx)\cdot \dot{\vx}_2 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\nabla g_1(\vx)\cdot \dot{\vx}_N &amp; \nabla g_2(\vx)\cdot \dot{\vx}_N &amp; \cdots &amp; \nabla g_m(\vx)\cdot \dot{\vx}_N
+\end{bmatrix}\vu
+$$
+Or in short
+$$
+\mu\vG\vu = \vtG\vu
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Yet another eigenvalue problem!</p>
+<p>But since $\dot{\vx}$ is involved, a natural idea is to use SINDy, which also helps selecting the observables (i.e. features).  See [1] for more details.</p>
+<p>[1] Kaiser, E., et al., Data-driven discovery of Koopman eigenfunctions for control, 2021.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="A-touch-on-Control">A touch on Control<a class="anchor-link" href="#A-touch-on-Control">&#182;</a></h2><p>Finally let's look at a nonlinear system with control,
+$$
+\begin{align}
+\mbox{System dynamics: }&amp;\ \dot{\vx}=\vf(\vx,\vu) \\
+\mbox{Observation: }&amp;\ \vg=\vg(\vx,\vu)
+\end{align}
+$$</p>
+<blockquote><p>This topic is still in active research and there are still some fundamental challenges.</p>
+</blockquote>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In general, for a scalar observable, one can find
+$$
+\dot{g} = \cK^\vu g
+$$
+where $\cK^\vu$ is a linear non-autonomous Koopman operator, that depends on the control input $\vu$.</p>
+<p>Like before, let's consider the eigenfunctions
+$$
+\dot\phi = \cK^\vu \phi = \mu^\vu \phi
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>If we factor in the actual dynamics $\vf(\vx,\vu)$
+$$
+\mu^\vu \phi = \cK^\vu \phi = \dot{\phi} = \nabla_\vx \phi \cdot \vf(\vx,\vu) + \nabla_\vu \phi \cdot \dot{\vu}
+$$</p>
+<blockquote><p>Problem: What is $\dot\vu$?</p>
+</blockquote>
+<p>This produces <a href="https://en.wikipedia.org/wiki/Causal_system">non-causal system</a> that is inconvenient to analysis, even in classical control methods.</p>
+<ul>
+<li>So we set $\dot\vu=0$ and assume step changes in control inputs (i.e. zero-hold)</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>One gets
+$$
+\dot{\phi} = \nabla_\vx \phi \cdot \vf(\vx,\vu)
+$$</p>
+<blockquote><p>Problem: $\vf(\vx,\vu)$ is too generic, can we try something more tangible?</p>
+</blockquote>
+<ul>
+<li>So to make life even easier, we assume a control-affine system,
+$$
+\dot{\vx} = \vf_0(\vx) + \sum_{i=1}^L \vf_i(\vx)u_i
+$$
+where the system is linear in $\vu$.</li>
+<li>The autonomous part $\vf^0$ has a Koopman form
+$$
+\mu^\vf\phi  = \cK^\vf \phi = \dot{\phi} = \nabla_\vx \phi \cdot \vf_0(\vx)
+$$</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The eigenproblem simplifies to
+$$
+\begin{align}
+\dot\phi &amp;= \nabla_\vx \phi \cdot \vf_0(\vx) + \sum_{i=1}^L \nabla_\vx \phi \cdot \vf_i(\vx)u_i \\
+&amp;= \mu^\vf \phi + \sum_{i=1}^L \nabla_\vx \phi \cdot \vf_i(\vx)u_i
+\end{align}
+$$</p>
+<blockquote><p>Problem: What about the second part?</p>
+</blockquote>
+<ul>
+<li>Let's assume $\nabla_\vx \phi \cdot \vf_i(\vx)$ can be approximated by a specific set of eigenfunctions $\{\phi_j\}_{j=1}^P$
+$$
+\nabla_\vx \phi \cdot \vf_i(\vx) = \sum_{j=1}^P b_{ij}\phi_j
+$$</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Then for the $k$th eigenfunction,
+$$
+\dot{\phi}_k = \mu_k^\vf\phi_k + \sum_{i=1}^L \sum_{j=1}^P b_{ij}^k\phi_j u_i \equiv \mu_k^\vf\phi_k + (\vB^k\vtf)^T \vu
+$$
+And if one write the equation for the $P$ eigenfunctions,
+$$
+\dot\vtf = \vtL\vtf + \begin{bmatrix} \vB^1\vtf &amp; \vB^2\vtf &amp; \cdots &amp; \vB^P\vtf \end{bmatrix}^T\vu = \vtL\vtf + (\cB\vtf) \vu
+$$</p>
+<ul>
+<li>$\vtL$ is a diagonal matrix with eigenvalues $\{\mu_j\}_{j=1}^P$</li>
+<li>$\cB$ is a "3D matrix", or a so-called bilinear operator</li>
+</ul>
+<blockquote><p>Now we get a working <strong>Koopman Bilinear Form</strong></p>
+</blockquote>
+<ul>
+<li>We can apply a modified EDMD technique to find the coefficients and the eigenfunctions, see [Brunton2022]</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Two-examples">Two examples<a class="anchor-link" href="#Two-examples">&#182;</a></h2>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Example-1">Example 1<a class="anchor-link" href="#Example-1">&#182;</a></h4><p><img src="pics/gkf_arch.png" align="middle" width=800px></p>
+<p>Ref: Li, Y., et al., Learning compositional Koopman operators for model-based control, 2019.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="pics/gkf_ctl.png" align="middle" width=800px></p>
+<p>Ref: Li, Y., et al., Learning compositional Koopman operators for model-based control, 2019.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Example-2">Example 2<a class="anchor-link" href="#Example-2">&#182;</a></h4><p><img src="pics/kbf_pred.png" align="middle" width=600px></p>
+<p>In-house work</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="pics/kbf_coef.png" align="middle" width=600px></p>
+<p>In-house work</p>
 
 </div>
 </div>

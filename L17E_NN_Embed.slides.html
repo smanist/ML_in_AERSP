@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>index slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>L17E_NN_Embed slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
@@ -14638,20 +14638,38 @@ div.jp-OutputPrompt {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="AERSP-597---Machine-Learning-in-Aerosapce-Engineering">AERSP 597 - Machine Learning in Aerosapce Engineering<a class="anchor-link" href="#AERSP-597---Machine-Learning-in-Aerosapce-Engineering">&#182;</a></h2><h3 id="Instructor:-Daning-Huang">Instructor: <a href="apus.psu.edu">Daning Huang</a><a class="anchor-link" href="#Instructor:-Daning-Huang">&#182;</a></h3>
+<h2 id="AERSP-597---Machine-Learning-in-Aerosapce-Engineering">AERSP 597 - Machine Learning in Aerosapce Engineering<a class="anchor-link" href="#AERSP-597---Machine-Learning-in-Aerosapce-Engineering">&#182;</a></h2><h2 id="Lecture-17E,-Neural-Networks:-Model-Embedding">Lecture 17E, Neural Networks: Model Embedding<a class="anchor-link" href="#Lecture-17E,-Neural-Networks:-Model-Embedding">&#182;</a></h2><h3 id="Instructor:-Daning-Huang">Instructor: Daning Huang<a class="anchor-link" href="#Instructor:-Daning-Huang">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>This website hosts the slides used for the AERSP 597 course taught at Penn State Aerospace Engineering.</p>
-<p>This course has a strong focus on regression (almost no classification).  It</p>
-<ul>
-<li>covers the machine learning techniques for the data-driven modeling and data analysis with emphasis on aerospace engineering applications, and</li>
-<li>exposes the students to the latest advances in the data-driven modeling studies that would be beneficial to their research.</li>
+$$
+\newcommand\ddf[2]{\dfrac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand\ppf[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\vU}{\mathbf{U}}
+\newcommand{\vd}{\mathbf{d}}
+\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vu}{\mathbf{u}}
+\newcommand{\vw}{\mathbf{w}}
+\newcommand{\vtt}{\boldsymbol{\theta}}
+\newcommand{\vtf}{\boldsymbol{\phi}}
+$$
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="TODAY:-Neural-Networks---V">TODAY: Neural Networks - V<a class="anchor-link" href="#TODAY:-Neural-Networks---V">&#182;</a></h2><ul>
+<li>Model calibration</li>
+<li>Adjoint formulation</li>
 </ul>
-<p>The topics are accompanied by case studies representing the application of machine learning techniques in aerospace engineering research.  Knowledge of multivariate calculus and basic linear algebra is required, and some familiarity with probability would be helpful.</p>
 
 </div>
 </div>
@@ -14659,15 +14677,29 @@ div.jp-OutputPrompt {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Specifically, the course consists of following topics:</p>
+<h2 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">&#182;</a></h2><blockquote><p><em>All models are wrong, but some are useful.</em></p>
+</blockquote>
 <ul>
-<li>Mathematical background: <a href="L2_Math_LA.slides.html">L2 Linear Algebra</a>, <a href="L3_Math_Prob.slides.html">L3 Probability Theory</a></li>
-<li>Linear regression: <a href="L4_LR_Basics.slides.html">L4 Basics</a>, <a href="L5_LR_Reg.slides.html">L5 Regularization</a>, <a href="L6_LR_Prob.slides.html">L6 Probability Formulation</a>, <a href="L7_LR_BiasVar.slides.html">L7 Model Selection</a>, <a href="L8_LR_Kern.slides.html">L8 Kernel Method</a></li>
-<li>Gaussian process regression: <a href="L9_GPR_Basics.slides.html">L9 Basics</a>, <a href="L10_GPR_Prob.slides.html">L10 Formulation</a>, <a href="L10E_GPR_MCMC.slides.html">L10Extra MCMC</a>, <a href="L11_GPR_Sampling.slides.html">L11 Sampling</a>, L12 Bayesian Optimization <a href="L12_GPR_BO.slides.html">slides</a><a href="L12_GPR_BO.pdf">/pdf</a>, L13 Variants <a href="L13_GPR_Variants.pdf">pdf</a></li>
-<li>Neural networks: <a href="L14_NN_Basics.slides.html">L14 Basics</a>, <a href="L15_NN_GD.slides.html">L15 Training</a>, <a href="L16_NN_BP.slides.html">L16 Automatic Differentiation</a>, <a href="L17_NN_Variants.slides.html">L17 Common Architectures</a>, <a href="L17E_NN_Embed.slides.html">L17Extra Model Embedding</a></li>
-<li>High-Dimensional systems: <a href="L18_HD_Basics.slides.html">L18 Basics</a>, <a href="L19_HD_Spatial.slides.html">L19 Spatial Decomposition</a>, <a href="L19E_HD_Clustering.slides.html">L19Extra Clustering</a>, <a href="L20_HD_Temporal.slides.html">L20 Temporal Decomposition</a></li>
-<li>Dynamical and differential systems: <a href="L21_DS_Basics.slides.html">L21 Basics</a>, <a href="L22_DS_Nonnormal.slides.html">L22 Nonnormality</a>, <a href="L22E_DS_DMD_Revisit.slides.html">L22Extra DMD Revisited</a>, <a href="L23_DS_NL.slides.html">L23 Tackling Nonlinearity</a>, <a href="L24_DS_Regr.slides.html">L24 Sparse Regression</a>, <a href="L25_Koopman.slides.html">L25 Koopman</a>, L26 Neural ODEs (TBA)</li>
+<li>In traditional CAE analysis, the physics cannot be precisely captured<ul>
+<li>e.g. turbulence closure, constitutive relation modeling</li>
+<li>Uncertainty in prediction/design $\rightarrow$ Large safety factor and performance penalty</li>
 </ul>
+</li>
+<li>In control and system engineering,<ul>
+<li>Non-trivial to design a "clever" and robust controller for the complex and stochastic environment</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>A machine learning model can be mebedded into the traditional analysis framework, so as to enhance the predictive capability of the latter.</p>
+<p><img src="pics/turbulence_closure_2.png" width=400px />
+<span style="color:gray; font-size:10px; float:right">(Figure from Holland, Baeder etc. 2019)</span></p>
 
 </div>
 </div>
@@ -14675,21 +14707,266 @@ div.jp-OutputPrompt {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><ol>
-<li>[PRML] Pattern Recognition and Machine Learning, Christopher Bishop, 2006.</li>
-<li>[MLaPP] Machine Learning: A Probabilistic Perspective, Kevin P. Murphy, 2012.</li>
-<li>[GPML] Gaussian Processes for Machine Learning, C. E. Rasmussen and C. K. I. Williams, 2006.</li>
-<li>[DMSC] Data-driven Modeling and Scientific Computation, Nathan Kutz, 2013.</li>
-</ol>
-<h2 id="Relevant-Courses">Relevant Courses<a class="anchor-link" href="#Relevant-Courses">&#182;</a></h2><ol>
-<li>More basic ones: <a href="https://www.eecs189.org/">Berkeley CS 189</a>, <a href="https://cs229.stanford.edu/">Stanford CS 229</a></li>
-<li>CNN-specific: <a href="http://cs231n.stanford.edu/">Stanford CS 231n</a></li>
-<li>ML with a Linear Algebra flavor: <a href="https://ocw.mit.edu/courses/mathematics/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/">MIT 18.065</a></li>
-</ol>
-<h2 id="Credits:">Credits:<a class="anchor-link" href="#Credits:">&#182;</a></h2><ol>
-<li><a href="https://github.com/thejakeyboy/umich-eecs545-lectures">UMich EECS 545</a></li>
-<li>@evislomo for generating the homework solutions</li>
-</ol>
+<h2 id="Formulation">Formulation<a class="anchor-link" href="#Formulation">&#182;</a></h2><h3 id="Notations">Notations<a class="anchor-link" href="#Notations">&#182;</a></h3><ul>
+<li>$\cR(\vu)=0$ represents the <strong>governing equation</strong> of the problem, and the $\vu$ is state variable.  For example,<ul>
+<li>Fluid dynamics: $\cR$ - Navier-Stokes equation, $\vu$ - density, momentum, energy</li>
+<li>Solid mechanics: $\cR$ - Force equilibrium, $\vu$ - structural displacement</li>
+<li>System dynamics: $\cR$ - Rigid body motion, $\vu$ - linear &amp; angular displacement/velocity</li>
+</ul>
+</li>
+<li>$\cJ(\vu)$ is the <strong>model error</strong>, i.e. the difference between the theoretical model and the reality.  For example,<ul>
+<li>Fluid dynamics: Surface pressure of an airfoil is extracted from the fluid solution $\vu$ and compared to experimental measurement.  The difference in the pressure distribution can be used as $\cJ$.</li>
+<li>Solid mechanics: The deformation of a beam is found from the structural solution $\vu$ and compared to experimental measurement.  The difference in the deformation can be used as $\cJ$.</li>
+<li>System dynamics: By a similar idea, the difference in simulation and measured dynamical response.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Calibration-model">Calibration model<a class="anchor-link" href="#Calibration-model">&#182;</a></h3><ul>
+<li>$\vf=\cM(\vu;\vd)$ represents a machine learning model that is parameterized by $\vf$ and takes in the state variable $\vu$.  It returns a set of coefficients $\vd$ to <strong>calibrate/correct</strong> the model prediction.  For example,<ul>
+<li>Fluid dynamics: $\vf$ to correct turbulence production term in the RANS equation, so as to improve the pressure prediction.</li>
+<li>Solid mechanics: $\vf$ to correct stress-strain relation, so as to improve the structural deformation prediction.</li>
+<li>System dynamics: $\vf$ to be used as an unknown external forcing term, so as to improve the accuracy of simulation.</li>
+</ul>
+</li>
+<li>When $\cM$ is incorporated into the analysis framework, the governing equation becomes,
+$$
+\cR(\vu;\vf)=0,\quad \mbox{where } \vf=\cM(\vu;\vd)
+$$
+and similarly, the model error becomes $\cJ(\vu;\vf)$.</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Optimization-formulation">Optimization formulation<a class="anchor-link" href="#Optimization-formulation">&#182;</a></h3><p>To improve the model, one wants to find the output of the calibration model that <strong>minimizes</strong> the model error, i.e.
+$$
+\begin{align}
+\min_{\vf} &amp;\quad \cJ(\vu;\vf) \\
+\mathrm{s.t.} &amp;\quad \cR(\vu;\vf) = 0
+\end{align}
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Two strategies to solve the optimization problem,</p>
+<ul>
+<li>Indirect approach:<ul>
+<li>First, solve the optimization problem and find the optimal correction factors $\vf$.</li>
+<li>Then, using $\vf$ as training data, fit a calibration model $\vf=\cM(\vu;\vd)$.</li>
+<li>Pros: $\cM$ does not explicitly exist in the governing equation, so easy to implement</li>
+<li>Cons: Size of $\vf$ can be large, so inefficient to train; and accuracy may be sacrificed in model fitting.</li>
+</ul>
+</li>
+<li>Direct approach:<ul>
+<li>Implement the model $\cM$ in $\cR$ and $\cJ$ directly</li>
+<li>Solve a coupled optimization problem that generates the optimal parameters $\vd$ in the calibration model.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The direct approach is solving a slightly different optimization problem,
+$$
+\begin{align}
+\min_{\vd} &amp;\quad \cJ(\vu;\vd) \\
+\mathrm{s.t.} &amp;\quad \cR(\vu;\vd) = 0
+\end{align}
+$$
+where $\cJ$ is used the loss function to train the calibration model; the difficulty is the backpropagation of error through the complex governing equation.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Adjoint-Method-for-PDE-Constraint">Adjoint Method for PDE Constraint<a class="anchor-link" href="#Adjoint-Method-for-PDE-Constraint">&#182;</a></h2><p>Consider the optimization problem in general,
+$$
+\begin{align}
+\min_{\vtt} &amp;\quad \cJ(\vu;\vtt) \\
+\mathrm{s.t.} &amp;\quad \cR(\vu;\vtt) = 0
+\end{align}
+$$
+where $\cR(\vu;\vtt) = 0$ is a set of $N$ equations representing the numerical discretization of a PDE.  The size of $\vu$ can be way larger than the size of the design variables $\vtt$.</p>
+<p>Given the design variables $\vtt^*$, the PDE is usually solved by a certain form of the Newton-Raphson method,
+$$
+\begin{align}
+\ppf{\cR}{\vu}\Delta\vu^i &amp;= -\cR(\vu^i,\vtt^*) \\
+\vu^{i+1} &amp;= \vu^i + \Delta\vu^i
+\end{align}
+$$
+where the first equation is typically solved using an iterative method.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Formulation-by-adjoint-variables">Formulation by adjoint variables<a class="anchor-link" href="#Formulation-by-adjoint-variables">&#182;</a></h3><p>For optimization, one wants the full derivative of $\cJ(\vu;\vtt)$ w.r.t. $\vtt$, i.e.
+$$
+\ddf{\cJ(\vu;\vtt)}{\vtt} = \ppf{\cJ}{\vu}\ppf{\vu}{\vtt} + \ppf{\cJ}{\vtt}
+$$
+where $\ppf{\vu}{\vtt}$ is non-trivial to compute.</p>
+<p>From the constraint, one knows,
+$$
+\ddf{\cR(\vu;\vtt)}{\vtt} = \ppf{\cR}{\vu}\ppf{\vu}{\vtt} + \ppf{\cR}{\vtt} = 0
+$$
+or
+$$
+\ppf{\vu}{\vtt} = \left(-\ppf{\cR}{\vu}\right)^{-1}\ppf{\cR}{\vtt}
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Therefore,
+$$
+\ddf{\cJ(\vu;\vtt)}{\vtt} = \ppf{\cJ}{\vu}\left(-\ppf{\cR}{\vu}\right)^{-1}\ppf{\cR}{\vtt} + \ppf{\cJ}{\vtt}
+$$</p>
+<p>Now let
+$$
+\vtf^T = -\ppf{\cJ}{\vu}\left(\ppf{\cR}{\vu}\right)^{-1}
+$$
+or
+$$
+\left(\ppf{\cR}{\vu}\right)^T\vtf = -\left(\ppf{\cJ}{\vu}\right)^T
+$$</p>
+<p>This last equation is called the Adjoint Equation, and $\vtf$ is called the Adjoint Variable.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>As a result, the full derivate of $\cJ(\vu;\vtt)$ w.r.t. $\vtt$ is computed as follows,</p>
+<ul>
+<li>Given $\vtt$, solve $\cR(\vu;\vtt)=0$ to find $\vu$<ul>
+<li>In this process one obtains $\ppf{\cR}{\vu}$.</li>
+</ul>
+</li>
+<li>Given $\vtt$ and $\vu$, find $\ppf{\cJ}{\vu}$, $\ppf{\cJ}{\vtt}$, and $\ppf{\cR}{\vtt}$.</li>
+<li>Solve the adjoint equation and find $\vtf$.
+$$
+\left(\ppf{\cR}{\vu}\right)^T\vtf = -\left(\ppf{\cJ}{\vu}\right)^T
+$$</li>
+<li>The gradient of $\cJ$
+$$
+\ddf{\cJ(\vu;\vtt)}{\vtt} = \vtf^T\ppf{\cR}{\vtt} + \ppf{\cJ}{\vtt}
+$$</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Formulation-by-Lagrange-multipliers">Formulation by Lagrange multipliers<a class="anchor-link" href="#Formulation-by-Lagrange-multipliers">&#182;</a></h3><p>Introduce a vector of Lagrange multipliers $\vtf$
+$$
+\cL(\vu;\vtt) = \cJ(\vu;\vtt) + \vtf^T \cR(\vu;\vtt)
+$$</p>
+<p>Now one wants the full derivative of $\cL(\vu;\vtt)$ w.r.t. $\vtt$, i.e.
+$$
+\ddf{\cL(\vu;\vtt)}{\vtt} = \ppf{\cJ}{\vu}\ppf{\vu}{\vtt} + \ppf{\cJ}{\vtt} + \vtf^T\left( \ppf{\cR}{\vu}\ppf{\vu}{\vtt} + \ppf{\cR}{\vtt} \right)
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The RHS is
+$$
+\ppf{\cJ}{\vtt} + \vtf^T\ppf{\cR}{\vtt} + \left(\ppf{\cJ}{\vu} + \vtf^T\ppf{\cR}{\vu}\right)\ppf{\vu}{\vtt}
+$$</p>
+<p>One can eliminate $\ppf{\vu}{\vtt}$ by setting the bracket to zero,
+$$
+\ppf{\cJ}{\vu} + \vtf^T\ppf{\cR}{\vu} = 0
+$$
+or the adjoint equation
+$$
+\left(\ppf{\cR}{\vu}\right)^T\vtf = -\left(\ppf{\cJ}{\vu}\right)^T
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Extra:-Multiple-PDE-constraints">Extra: Multiple PDE constraints<a class="anchor-link" href="#Extra:-Multiple-PDE-constraints">&#182;</a></h3><p>When a multi-physics problem is considered, which is not uncommon in the field of engineering, the optimization problem becomes
+$$
+\begin{align}
+\min_{\vtt} &amp;\quad \cJ(\vU;\vtt) \\
+\mathrm{s.t.} &amp;\quad \cR_j(\vU;\vtt) = 0,\quad j=1,\cdots,m
+\end{align}
+$$
+where $m$ PDE's are involved, with unknowns $\vU=\{\vu_1,\cdots,\vu_m\}$.</p>
+<p>Introduce a set of Lagrange multipliers, or the adjoint variables,
+$$
+\cL(\vU;\vtt) = \cJ(\vU;\vtt) + \sum_{j=1}^m \vtf_j^T \cR_j(\vU;\vtt)
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Take the full derivative,
+$$
+\begin{align}
+\ddf{\cL(\vu;\vtt)}{\vtt} &amp;= \ppf{\cJ}{\vU}\ppf{\vU}{\vtt} + \ppf{\cJ}{\vtt} + \sum_{j=1}^m \vtf_j^T\left( \ppf{\cR_j}{\vU}\ppf{\vU}{\vtt} + \ppf{\cR_j}{\vtt} \right) \\
+&amp;= \ppf{\cJ}{\vtt} + \sum_{j=1}^m \vtf_j^T\ppf{\cR_j}{\vtt} + \sum_{j=1}^m \left(\vtf_j^T\ppf{\cR_j}{\vU} + \ppf{\cJ}{\vU}\right)\ppf{\vU}{\vtt}
+\end{align}
+$$</p>
+<p>A set of $m$ coupled adjoint equations is identified as
+$$
+\sum_{j=1}^m \left(\ppf{\cR_j}{\vu_i}\right)^T\vtf_j = \left(\ppf{\cJ}{\vu_i}\right)^T,\quad i=1,\cdots,m
+$$</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Back-to-Model-Calibration">Back to Model Calibration<a class="anchor-link" href="#Back-to-Model-Calibration">&#182;</a></h3><ul>
+<li>The adjoint method can be readily applied to the indirect approach by letting $\vtt=\vf$.</li>
+<li>Slightly more involved for the direct approach, where $\vtt=\vd$:
+$$
+\ppf{\cR}{\vtt} = \ppf{\cR}{\vf}\ppf{\vf}{\vd}
+$$<ul>
+<li>$\ppf{\cR}{\vf}$: Same term in indirect approach.</li>
+<li>$\ppf{\vf}{\vd}$: A new term found by backpropagation of $\cM$</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
