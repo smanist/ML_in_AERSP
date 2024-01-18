@@ -1,9 +1,0 @@
-[submodule "MiA_src"]
-	path = MiA_src
-	url = https://github.com/smanist/MiA_src
-[submodule "MiA_utils"]
-	path = MiA_utils
-	url = git@github.com:smanist/MiA_utils.git
-[submodule "MiA_assess"]
-	path = MiA_assess
-	url = git@github.com:smanist/MiA_assess.git
